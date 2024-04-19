@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://d3v6bw0vevyxh"]
+
+[ext_resource type="PackedScene" uid="uid://cfugnx0rji675" path="res://scenes/Characters/CharacterGeneric.tscn" id="1_7kkcp"]
+[ext_resource type="Script" path="res://scripts/State/IdleState.gd" id="2_5bngj"]
+[ext_resource type="Script" path="res://scripts/State/RunningState.gd" id="3_6am34"]
+[ext_resource type="Script" path="res://scripts/State/JumpState.gd" id="4_5gsxi"]
+[ext_resource type="Texture2D" uid="uid://dy40p5l23ne7b" path="res://icon.svg" id="4_qathr"]
+[ext_resource type="Script" path="res://scripts/State/FallState.gd" id="5_4v3me"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7ku3"]
+size = Vector2(56, 55)
+
+[node name="Player" instance=ExtResource("1_7kkcp")]
+
+[node name="FSM" parent="." index="0" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="FSM" index="0"]
+script = ExtResource("2_5bngj")
+
+[node name="Running" type="Node" parent="FSM" index="1"]
+script = ExtResource("3_6am34")
+
+[node name="Jump" type="Node" parent="FSM" index="2"]
+script = ExtResource("4_5gsxi")
+jump = null
+gravity = null
+
+[node name="Fall" type="Node" parent="FSM" index="3"]
+script = ExtResource("5_4v3me")
+
+[node name="Bend" type="Node" parent="FSM" index="4"]
+
+[node name="CollisionShape2D" parent="." index="3"]
+position = Vector2(3, -0.5)
+shape = SubResource("RectangleShape2D_v7ku3")
+
+[node name="Sprite2D" parent="." index="4"]
+position = Vector2(3, 0)
+scale = Vector2(0.453125, 0.453125)
+texture = ExtResource("4_qathr")
