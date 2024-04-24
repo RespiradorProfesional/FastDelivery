@@ -4,8 +4,12 @@ class_name FiniteStateMachine
 
 @export var speed=500
 @export var gravity=100
+@export var gravityInWall=50
 @export var jump=40
 @export var dashSpeed=10
+
+var resetJumpWall=true
+var resetGravityWall=true
 
 var states : Dictionary = {}
 var current_state : State

@@ -21,4 +21,7 @@ func Update(_delta : float):
 	if(player.is_on_floor()):
 		Transitioned.emit(self, "Idle")
 	
+	if(player.is_on_wall()):
+		Transitioned.emit(self, "InWall")
+	
 	

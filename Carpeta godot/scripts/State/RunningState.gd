@@ -10,6 +10,7 @@ var canDash=false
 
 # Called when the node enters the scene tree for the first time.
 func Enter():
+	fsm.resetJumpWall=true
 	player = get_tree().get_first_node_in_group("Player")
 	#animation_Tree.set("")
 	pass

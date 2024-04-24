@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3v6bw0vevyxh"]
+[gd_scene load_steps=10 format=3 uid="uid://d3v6bw0vevyxh"]
 
 [ext_resource type="PackedScene" uid="uid://cfugnx0rji675" path="res://scenes/Characters/CharacterGeneric.tscn" id="1_7kkcp"]
 [ext_resource type="Script" path="res://scripts/State/IdleState.gd" id="2_5bngj"]
@@ -6,12 +6,13 @@
 [ext_resource type="Script" path="res://scripts/State/JumpState.gd" id="4_5gsxi"]
 [ext_resource type="Texture2D" uid="uid://dy40p5l23ne7b" path="res://icon.svg" id="4_qathr"]
 [ext_resource type="Script" path="res://scripts/State/FallState.gd" id="5_4v3me"]
+[ext_resource type="Script" path="res://scripts/State/InWallState.gd" id="6_nd6g0"]
+[ext_resource type="Script" path="res://scripts/State/WallJumpState.gd" id="7_wd2m8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7ku3"]
 size = Vector2(56, 55)
 
 [node name="Player" instance=ExtResource("1_7kkcp")]
-script = null
 
 [node name="FSM" parent="." index="0" node_paths=PackedStringArray("initial_state")]
 gravity = 600
@@ -31,6 +32,12 @@ script = ExtResource("4_5gsxi")
 script = ExtResource("5_4v3me")
 
 [node name="Bend" type="Node" parent="FSM" index="4"]
+
+[node name="InWall" type="Node" parent="FSM" index="5"]
+script = ExtResource("6_nd6g0")
+
+[node name="WallJump" type="Node" parent="FSM" index="6"]
+script = ExtResource("7_wd2m8")
 
 [node name="CollisionShape2D" parent="." index="3"]
 position = Vector2(3, -0.5)
