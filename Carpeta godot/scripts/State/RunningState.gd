@@ -30,5 +30,6 @@ func Update(_delta : float):
 	
 	if Input.is_action_just_pressed("Jump"):
 		Transitioned.emit(self, "Jump")
-	
+	if !player.is_on_floor():
+		Transitioned.emit(self,"Fall")
 
