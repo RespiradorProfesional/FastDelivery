@@ -3,8 +3,10 @@ class_name FiniteStateMachine
 
 
 @export var speed=500
+@export var bendSpeed=250
 @export var gravity=100
 @export var gravityInWall=50
+@export var jumpMaxBend=1000
 @export var jump=40
 @export var dashSpeed=10
 

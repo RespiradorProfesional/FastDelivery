@@ -33,3 +33,6 @@ func Update(_delta : float):
 	
 	if !player.is_on_floor():
 		Transitioned.emit(self,"Fall")
+
+	if Input.is_action_just_pressed("Bend"):
+		Transitioned.emit(self, "Bend")
