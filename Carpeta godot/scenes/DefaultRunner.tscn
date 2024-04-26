@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d3v6bw0vevyxh"]
+[gd_scene load_steps=13 format=3 uid="uid://d3v6bw0vevyxh"]
 
 [ext_resource type="PackedScene" uid="uid://cfugnx0rji675" path="res://scenes/Characters/CharacterGeneric.tscn" id="1_7kkcp"]
 [ext_resource type="Script" path="res://scripts/State/IdleState.gd" id="2_5bngj"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scripts/State/InWallState.gd" id="6_nd6g0"]
 [ext_resource type="Script" path="res://scripts/State/WallJumpState.gd" id="7_wd2m8"]
 [ext_resource type="Script" path="res://scripts/State/BendJump.gd" id="9_jlqov"]
+[ext_resource type="Script" path="res://scripts/State/SlideState.gd" id="10_222jv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7ku3"]
 size = Vector2(56, 55)
@@ -44,6 +45,9 @@ script = ExtResource("7_wd2m8")
 
 [node name="BendJump" type="Node" parent="FSM" index="7"]
 script = ExtResource("9_jlqov")
+
+[node name="Slide" type="Node" parent="FSM" index="8"]
+script = ExtResource("10_222jv")
 
 [node name="CollisionShape2D" parent="." index="3"]
 position = Vector2(3, -0.5)

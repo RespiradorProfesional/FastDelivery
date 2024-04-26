@@ -21,6 +21,10 @@ func Update(_delta : float):
 	
 	player.move_and_slide()
 	
+
+
+	if player.is_on_floor() and Input.is_action_pressed("Bend"):
+		Transitioned.emit(self, "Bend")
 	if player.is_on_wall():
 		Transitioned.emit(self, "InWall")
 	if  player.is_on_floor():
