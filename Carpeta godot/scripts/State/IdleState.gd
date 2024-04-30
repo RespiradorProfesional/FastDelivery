@@ -13,9 +13,11 @@ func Enter():
 
 func Update(_delta : float):
 	print("quieto")
-	if(Input.get_axis("MoveLeft", "MoveRight")):
+	
+	
+	if Input.get_axis("MoveLeft", "MoveRight"):
 		Transitioned.emit(self, "Running")
-		
+
 	if !player.is_on_floor():
 		Transitioned.emit(self,"Fall")
 	

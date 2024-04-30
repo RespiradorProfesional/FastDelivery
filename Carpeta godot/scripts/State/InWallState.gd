@@ -11,6 +11,8 @@ var lastDirectionJump=0
 # hacer que s epueda mover despues de un wall jump pero la direccion ahora tiene que ser contraria
 # a la que hizo la ultima vez que hizo el wall jump
 
+#detectar si la pared es una pared y no un objeto cualquiera
+
 func Enter():
 	player = get_tree().get_first_node_in_group("Player")
 	if fsm.resetJumpWall :

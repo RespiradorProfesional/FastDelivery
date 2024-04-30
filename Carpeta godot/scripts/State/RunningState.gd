@@ -10,24 +10,24 @@ var canDash=false
 
 # Called when the node enters the scene tree for the first time.
 func Enter():
-	fsm.resetJumpWall=true
 	player = get_tree().get_first_node_in_group("Player")
-	#animation_Tree.set("")
+	
+	fsm.resetJumpWall=true
 	pass
 
 func Update(_delta : float):
-	print("moviendo")
-	#var input_dir = Input.get_axis("MoveLeft", "MoveRight")
-		
 	
 	var direction = Input.get_axis("MoveLeft", "MoveRight")
 	if direction:
 		player.velocity.x = direction * fsm.speed
-	else:
-		Transitioned.emit(self, "Idle")
+	
 	
 	player.move_and_slide()
+	print("moviendo")
+	#animation_Tree.set("")
 	
+	if player.velocity.x==0:
+		Transitioned.emit(self, "Idle")
 	if Input.is_action_just_pressed("Jump"):
 		Transitioned.emit(self, "Jump")
 	if Input.is_action_just_pressed("Slide"):
