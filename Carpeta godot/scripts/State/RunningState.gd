@@ -5,7 +5,7 @@ extends State
 
 @export var dashSpeed=10
 var player : CharacterBody2D
-
+#va al reves derecha y izquierda osea no se para
 var canDash=false
 
 # Called when the node enters the scene tree for the first time.
@@ -24,10 +24,13 @@ func Update(_delta : float):
 	
 	player.move_and_slide()
 	print("moviendo")
-	#animation_Tree.set("")
 	
-	if player.velocity.x==0:
+	
+	if player.velocity.x==0 or direction==0:
 		Transitioned.emit(self, "Idle")
+	
+	
+	#animation_Tree.set("")
 	if Input.is_action_just_pressed("Jump"):
 		Transitioned.emit(self, "Jump")
 	if Input.is_action_just_pressed("Slide"):

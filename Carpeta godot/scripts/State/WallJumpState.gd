@@ -12,7 +12,7 @@ var finishJumpTime
 
 func Enter():
 	player = get_tree().get_first_node_in_group("Player")
-	player.velocity.y += -fsm.jump
+	player.velocity.y += -fsm.jump*1.25
 	finishJumpTime=false
 	await get_tree().create_timer(0.3).timeout
 	finishJumpTime=true

@@ -19,7 +19,7 @@ func Enter():
 func Update(_delta : float):
 	
 	
-	actualVelocity+=5
+	actualVelocity+=2
 	print("Slide")
 	print(player.velocity.x)
 	
