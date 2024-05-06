@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://b3doodk1ierdd"]
+[gd_scene load_steps=16 format=3 uid="uid://b3doodk1ierdd"]
 
 [ext_resource type="PackedScene" uid="uid://d3v6bw0vevyxh" path="res://scenes/DefaultRunner.tscn" id="2_1xn5y"]
 [ext_resource type="Texture2D" uid="uid://b45f673np4ow6" path="res://sprites/TileMap/Nivel 1/Ciudad/TileMapCiudad1.png" id="2_juuse"]
 [ext_resource type="Texture2D" uid="uid://b7luk03tx5q8w" path="res://sprites/ParallaxFondos/Nivel 1/Ciudad1er.png" id="4_3v8vx"]
 [ext_resource type="Texture2D" uid="uid://da5bbn64i5rsi" path="res://sprites/ParallaxFondos/Nivel 1/Ciudad2er.png" id="5_583r6"]
 [ext_resource type="Texture2D" uid="uid://d21s4xsxwyrei" path="res://sprites/ParallaxFondos/Nivel 1/Ciudad3er.png" id="6_qtfaf"]
+[ext_resource type="Texture2D" uid="uid://dy40p5l23ne7b" path="res://icon.svg" id="7_1mler"]
 [ext_resource type="Texture2D" uid="uid://bp48vem8lepwj" path="res://Shaders/lightTriangule.jpg" id="7_jsqe6"]
+[ext_resource type="Script" path="res://scripts/Ui/Score.gd" id="7_syxky"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j0n8x"]
 texture = ExtResource("2_juuse")
@@ -419,6 +421,9 @@ flags/light_only = false
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_78cpl"]
 shader = SubResource("VisualShader_4mvof")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mt2j1"]
+size = Vector2(32, 35)
+
 [node name="Node2D" type="Node2D"]
 position = Vector2(-102, 183)
 
@@ -483,16 +488,53 @@ texture = ExtResource("6_qtfaf")
 centered = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2(98, -185)
 color = Color(0.639216, 0.639216, 0.639216, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(100, -184)
 color = Color(0.298039, 0.298039, 0.298039, 1)
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(28, 82)
+[node name="Lights" type="Node2D" parent="."]
+position = Vector2(-2, 88)
 
-[node name="PointLight2D2" type="PointLight2D" parent="Node2D"]
+[node name="PointLight2D2" type="PointLight2D" parent="Lights"]
 position = Vector2(584, 225)
 color = Color(1, 1, 0.203922, 1)
 energy = 2.01
 texture = ExtResource("7_jsqe6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Score Items" type="Node2D" parent="."]
+script = ExtResource("7_syxky")
+
+[node name="Control" type="Control" parent="Score Items"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 102.0
+offset_top = -183.0
+offset_right = 142.0
+offset_bottom = -143.0
+
+[node name="Label" type="Label" parent="Score Items/Control"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 33.0
+offset_right = 207.0
+offset_bottom = 56.0
+text = "AAAAAAAAAAAAA"
+
+[node name="finalLevel" type="Area2D" parent="Score Items"]
+position = Vector2(888, 305)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Score Items/finalLevel"]
+position = Vector2(143, 2)
+shape = SubResource("RectangleShape2D_mt2j1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Score Items/finalLevel"]
+position = Vector2(144, 2)
+scale = Vector2(0.242188, 0.21875)
+texture = ExtResource("7_1mler")
+
+[node name="Timer" type="Timer" parent="Score Items"]
