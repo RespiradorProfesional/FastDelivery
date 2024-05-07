@@ -504,26 +504,17 @@ color = Color(1, 1, 0.203922, 1)
 energy = 2.01
 texture = ExtResource("7_jsqe6")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
 [node name="Score Items" type="Node2D" parent="."]
 script = ExtResource("7_syxky")
 
-[node name="Control" type="Control" parent="Score Items"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 102.0
-offset_top = -183.0
-offset_right = 142.0
-offset_bottom = -143.0
+[node name="CanvasLayer" type="CanvasLayer" parent="Score Items"]
 
-[node name="Label" type="Label" parent="Score Items/Control"]
-layout_mode = 0
-offset_left = 69.0
-offset_top = 33.0
-offset_right = 207.0
-offset_bottom = 56.0
-text = "AAAAAAAAAAAAA"
+[node name="Label" type="Label" parent="Score Items/CanvasLayer"]
+offset_left = 68.0
+offset_top = 32.0
+offset_right = 180.0
+offset_bottom = 55.0
+text = "aaaaaaaaaaaa"
 
 [node name="finalLevel" type="Area2D" parent="Score Items"]
 position = Vector2(888, 305)
@@ -538,3 +529,7 @@ scale = Vector2(0.242188, 0.21875)
 texture = ExtResource("7_1mler")
 
 [node name="Timer" type="Timer" parent="Score Items"]
+autostart = true
+
+[connection signal="body_entered" from="Score Items/finalLevel" to="Score Items" method="_on_final_level_body_entered"]
+[connection signal="timeout" from="Score Items/Timer" to="Score Items" method="_on_timer_timeout"]
