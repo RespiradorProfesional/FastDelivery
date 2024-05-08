@@ -59,7 +59,12 @@ INSERT INTO Messages (user_id, message_text) VALUES
 (2, 'Este es un mensaje del usuario 2'),
 (3, 'Este es un mensaje del usuario 3');
 
-select * from users;
+select * from messages;
+
+SELECT Users.username, Records.completion_time_seconds
+FROM Users
+INNER JOIN Records ON Users.user_id = Records.user_id
+WHERE Records.level_id = 1;
 
 SELECT Messages.message_id, Users.username, Messages.message_text
 FROM Users
