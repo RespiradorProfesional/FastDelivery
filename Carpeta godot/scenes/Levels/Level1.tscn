@@ -493,7 +493,8 @@ color = Color(0.639216, 0.639216, 0.639216, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 position = Vector2(100, -184)
-color = Color(0.298039, 0.298039, 0.298039, 1)
+color = Color(0.419608, 0.419608, 0.419608, 1)
+energy = 0.61
 
 [node name="Lights" type="Node2D" parent="."]
 position = Vector2(-2, 88)
