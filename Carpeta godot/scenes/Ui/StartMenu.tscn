@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk4eyx01s4voj"]
+
+[ext_resource type="Script" path="res://scripts/Ui/StartMenu.gd" id="1_x862d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_orq1s"]
+font_size = 30
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x862d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="UserSesion" type="VBoxContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/UserSesion"]
+layout_mode = 2
+text = "Nombre"
+horizontal_alignment = 1
+
+[node name="NameTextField" type="LineEdit" parent="VBoxContainer/UserSesion"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label2" type="Label" parent="VBoxContainer/UserSesion"]
+layout_mode = 2
+text = "Contraseña"
+horizontal_alignment = 1
+
+[node name="PasswTextField" type="LineEdit" parent="VBoxContainer/UserSesion"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="LoginButton" type="Button" parent="VBoxContainer/UserSesion"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Login"
+
+[node name="RegisterButton" type="Button" parent="VBoxContainer/UserSesion"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="LabelStart" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Pulse cualquier boton"
+label_settings = SubResource("LabelSettings_orq1s")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HTTPRequestLogin" type="HTTPRequest" parent="."]
+
+[node name="HTTPRequestRegister" type="HTTPRequest" parent="."]
+
+[connection signal="pressed" from="VBoxContainer/UserSesion/LoginButton" to="." method="_on_login_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/UserSesion/RegisterButton" to="." method="_on_register_button_pressed"]
+[connection signal="request_completed" from="HTTPRequestLogin" to="." method="_on_http_request_login_request_completed"]
+[connection signal="request_completed" from="HTTPRequestRegister" to="." method="_on_http_request_register_request_completed"]

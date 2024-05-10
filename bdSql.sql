@@ -59,7 +59,7 @@ INSERT INTO Messages (user_id, message_text) VALUES
 (2, 'Este es un mensaje del usuario 2'),
 (3, 'Este es un mensaje del usuario 3');
 
-select * from messages;
+select * from Users;
 
 SELECT Users.username, Records.completion_time_seconds
 FROM Users

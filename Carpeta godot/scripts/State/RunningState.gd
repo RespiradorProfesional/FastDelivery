@@ -31,7 +31,7 @@ func Update(_delta : float):
 	
 	
 	#animation_Tree.set("")
-	if Input.is_action_just_pressed("Jump"):
+	if Input.is_action_pressed("Jump"):
 		Transitioned.emit(self, "Jump")
 	if Input.is_action_just_pressed("Slide"):
 		Transitioned.emit(self, "Slide")
