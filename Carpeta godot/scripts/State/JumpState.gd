@@ -21,8 +21,6 @@ func Update(_delta : float):
 	
 	player.velocity.x = direction * fsm.speed
 	
-	print("Saltando")
-	
 	player.move_and_slide()
 	
 	if player.is_on_floor() and Input.is_action_pressed("Bend"):

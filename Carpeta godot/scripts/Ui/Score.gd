@@ -1,9 +1,13 @@
 extends Node2D
 
 @onready var timer=$Timer
+@export var ruteScene=""
+@export var actualLevel=0
 var seconds
 @onready var cronometre=$CanvasLayer/Label
 @onready var finalLevel=$finalLevel
+@onready var httpdRequest=$HTTPRequest
+
 var tiempoFormateado
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,4 +31,13 @@ func _on_timer_timeout():
 
 
 func _on_final_level_body_entered(body):
-	seconds=0
+	var newScene = load(ruteScene)
+	var json = JSON.stringify({"user_id":GlobalVariable.userId,"level_id":actualLevel,"time":seconds})
+	
+	var headers = ["Content-Type: application/json"]
+	httpdRequest.request(GlobalVariable.urlBaseApi+"/records",headers,HTTPClient.METHOD_POST,json)
+
+
+func _on_http_request_request_completed(result, response_code, headers, body):
+	print(JSON.parse_string(body.get_string_from_utf8()))
+	get_tree().change_scene_to_file(ruteScene)

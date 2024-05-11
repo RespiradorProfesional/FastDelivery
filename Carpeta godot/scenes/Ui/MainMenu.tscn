@@ -22,7 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxMainScreen" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,45 +31,82 @@ offset_left = 123.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxMainScreen"]
 layout_mode = 2
 theme_override_constants/separation = 70
 alignment = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="HBoxMainScreen/VBoxContainer"]
 layout_mode = 2
 text = "Fast Delivery"
 label_settings = SubResource("LabelSettings_21sdo")
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxMainScreen/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="JugarButton" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="JugarButton" type="Button" parent="HBoxMainScreen/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Jugar"
 
-[node name="Records" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="Records" type="Button" parent="HBoxMainScreen/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Records
 "
 
-[node name="Button3" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="Button3" type="Button" parent="HBoxMainScreen/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Creditos"
 
-[node name="Button4" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="Button4" type="Button" parent="HBoxMainScreen/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Salir"
 
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer/JugarButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer/Records" to="." method="_on_records_pressed"]
+[node name="Ajute" type="Button" parent="HBoxMainScreen/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Ajute"
+
+[node name="VBoxUserScreen" type="VBoxContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -52.0
+offset_right = 100.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxUserScreen"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Borrar"
+
+[node name="Button2" type="Button" parent="VBoxUserScreen"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Modificar"
+
+[connection signal="pressed" from="HBoxMainScreen/VBoxContainer/VBoxContainer/JugarButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxMainScreen/VBoxContainer/VBoxContainer/Records" to="." method="_on_records_pressed"]
+[connection signal="pressed" from="HBoxMainScreen/VBoxContainer/VBoxContainer/Ajute" to="." method="_on_ajute_pressed"]

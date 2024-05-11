@@ -59,7 +59,7 @@ INSERT INTO Messages (user_id, message_text) VALUES
 (2, 'Este es un mensaje del usuario 2'),
 (3, 'Este es un mensaje del usuario 3');
 
-select * from Users;
+select * from Records;
 
 SELECT Users.username, Records.completion_time_seconds
 FROM Users
@@ -69,3 +69,6 @@ WHERE Records.level_id = 1;
 SELECT Messages.message_id, Users.username, Messages.message_text
 FROM Users
 JOIN Messages ON Users.user_id = Messages.user_id;
+
+INSERT INTO Users (username, password) VALUES
+('juan', '123');

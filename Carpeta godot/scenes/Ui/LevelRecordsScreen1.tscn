@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2sqpb1l4wkkf"]
+
+[ext_resource type="PackedScene" uid="uid://bdkuavy38da7l" path="res://scenes/Ui/levelRecordsScreenTemplate.tscn" id="1_dfwua"]
+[ext_resource type="Script" path="res://scripts/Ui/LevelRecordsScreen1.gd" id="2_v7un6"]
+
+[node name="Control" instance=ExtResource("1_dfwua")]
+script = ExtResource("2_v7un6")
+level = "1"

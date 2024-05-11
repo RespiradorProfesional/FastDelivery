@@ -60,6 +60,7 @@ text = "Login"
 custom_minimum_size = Vector2(100, 30)
 layout_mode = 2
 size_flags_horizontal = 4
+text = "Registrar"
 
 [node name="LabelStart" type="Label" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)

@@ -12,7 +12,6 @@ func Enter():
 	#animation_Tree.set("")
 
 func Update(_delta : float):
-	print("quieto")
 	
 	
 	if Input.get_axis("MoveLeft", "MoveRight"):

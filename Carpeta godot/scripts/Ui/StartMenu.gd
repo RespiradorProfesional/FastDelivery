@@ -2,7 +2,8 @@ extends Control
 
 @onready var userSesion=$VBoxContainer/UserSesion
 @onready var LabelStart=$VBoxContainer/LabelStart
-@onready var http_request= $HTTPRequest
+@onready var http_requestlogin= $HTTPRequestLogin
+@onready var http_requestregister= $HTTPRequestRegister
 @onready var nameTextField= $VBoxContainer/UserSesion/NameTextField
 @onready var passwTextField= $VBoxContainer/UserSesion/PasswTextField
 
@@ -10,7 +11,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	print(GlobalVariable.userId) #userId reset when game resets
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,15 +30,25 @@ func _input(event):
 
 
 func _on_login_button_pressed():
-	http_request.request(GlobalVariable.urlBaseApi+"/user/" + nameTextField.text + "/" +passwTextField.text)
+	http_requestlogin.request(GlobalVariable.urlBaseApi+"/user/" + nameTextField.text + "/" +passwTextField.text)
 
 func _on_register_button_pressed():
-	pass # Replace with function body.
+	var json = JSON.stringify({"username":nameTextField.text,"password":passwTextField.text})
+	
+	var headers = ["Content-Type: application/json"]
+	http_requestregister.request(GlobalVariable.urlBaseApi+"/user",headers,HTTPClient.METHOD_POST,json)
 
 func _on_http_request_login_request_completed(result, response_code, headers, body):
 	var data= JSON.parse_string(body.get_string_from_utf8())
-	print(data)
-	#get_tree().change_scene_to_file("res://scenes/Ui/MainMenu.tscn")
+	
+	
+	if data["response"]==true:
+		GlobalVariable.userId=data.user.user_id
+		GlobalVariable.userName=data.user.username
+		get_tree().change_scene_to_file("res://scenes/Ui/MainMenu.tscn")
+	else :
+		print("no")
+	
 
 func _on_http_request_register_request_completed(result, response_code, headers, body):
-	pass # Replace with function body.
+	print(JSON.parse_string(body.get_string_from_utf8()))

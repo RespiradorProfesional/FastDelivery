@@ -23,7 +23,6 @@ func Update(_delta : float):
 	
 	
 	player.move_and_slide()
-	print("moviendo")
 	
 	
 	if player.velocity.x==0 or direction==0:

@@ -507,6 +507,8 @@ texture = ExtResource("7_jsqe6")
 
 [node name="Score Items" type="Node2D" parent="."]
 script = ExtResource("7_syxky")
+ruteScene = "res://scenes/Ui/MainMenu.tscn"
+actualLevel = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Score Items"]
 
@@ -532,5 +534,8 @@ texture = ExtResource("7_1mler")
 [node name="Timer" type="Timer" parent="Score Items"]
 autostart = true
 
+[node name="HTTPRequest" type="HTTPRequest" parent="Score Items"]
+
 [connection signal="body_entered" from="Score Items/finalLevel" to="Score Items" method="_on_final_level_body_entered"]
 [connection signal="timeout" from="Score Items/Timer" to="Score Items" method="_on_timer_timeout"]
+[connection signal="request_completed" from="Score Items/HTTPRequest" to="Score Items" method="_on_http_request_request_completed"]
