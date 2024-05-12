@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://jwkwqw5obyj0"]
+
+[ext_resource type="Script" path="res://FX/AudioPlayerMenuBackground.gd" id="1_pfwnn"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+volume_db = -13.0
+autoplay = true
+script = ExtResource("1_pfwnn")

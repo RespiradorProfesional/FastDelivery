@@ -11,7 +11,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(GlobalVariable.userId) #userId reset when game resets
+	AudioPlayerBackground.play_music_start_sreen_background()
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
