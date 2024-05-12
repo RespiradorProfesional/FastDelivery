@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdfub8swlx7tf"]
+[gd_scene load_steps=5 format=3 uid="uid://bdfub8swlx7tf"]
 
 [ext_resource type="Script" path="res://scripts/Ui/RecordsScreen.gd" id="1_jgtwg"]
+[ext_resource type="Texture2D" uid="uid://dmc0gsg7imqh0" path="res://Ui elements/Main menu/backgroundMenuSecond.png" id="2_wx1s0"]
+[ext_resource type="Theme" uid="uid://iwupsatdtbhm" path="res://Ui elements/Themes/itemsMenu.tres" id="3_bmq23"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_si8se"]
+font_size = 50
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -11,27 +16,62 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jgtwg")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_wx1s0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 30
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Back" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
+theme = ExtResource("3_bmq23")
 text = "Tabla de records"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Nivel 1" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(400, 25)
+[node name="Nivel 1" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 80)
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("3_bmq23")
 text = "Nivel 1
 "
 
-[connection signal="pressed" from="VBoxContainer/Nivel 1" to="." method="_on_nivel_1_pressed"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LabelLevel" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("3_bmq23")
+label_settings = SubResource("LabelSettings_si8se")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ImageLevel" type="TextureRect" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/Nivel 1" to="." method="_on_nivel_1_mouse_entered"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Nivel 1" to="." method="_on_nivel_1_pressed"]

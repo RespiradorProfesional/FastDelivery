@@ -6,7 +6,6 @@
 
 [node name="FSM" type="Node" parent="."]
 script = ExtResource("2_5ao5w")
-jump = 400
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 

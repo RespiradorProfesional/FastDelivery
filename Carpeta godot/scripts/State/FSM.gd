@@ -1,25 +1,25 @@
 extends Node
 class_name FiniteStateMachine
 
-
-@export var speed=500
+@export var speed=200
 @export var bendSpeed=250
-@export var slideSpeed=1000
-@export var gravity=100
+@export var slideSpeed=250
+@export var gravity=500
 @export var gravityInWall=50
-@export var jumpMaxBend=1000
-@export var jump=40
+@export var jumpMaxBend=600
+@export var jump=200
 @export var dashSpeed=10
 
 var resetJumpWall=true
 var resetGravityWall=true
+
 
 var states : Dictionary = {}
 var current_state : State
 @export var initial_state : State
 
 #NOTE This is a generic finite_state_machine, it handles all states, changes to this code will affect
-	# everything that uses a state machine!
+# everything that uses a state machine!
 
 func _ready():
 	for child in get_children():

@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2sqpb1l4wkkf"]
+[gd_scene load_steps=2 format=3 uid="uid://bd3mius4820h2"]
 
-[ext_resource type="PackedScene" uid="uid://bdkuavy38da7l" path="res://scenes/Ui/levelRecordsScreenTemplate.tscn" id="1_dfwua"]
-[ext_resource type="Script" path="res://scripts/Ui/LevelRecordsScreen1.gd" id="2_v7un6"]
+[ext_resource type="PackedScene" uid="uid://bdkuavy38da7l" path="res://scenes/Ui/levelRecordsScreenTemplate.tscn" id="1_damt7"]
 
-[node name="Control" instance=ExtResource("1_dfwua")]
-script = ExtResource("2_v7un6")
+[node name="Control" instance=ExtResource("1_damt7")]
 level = "1"
+
+[node name="HboxTemplate" parent="." index="4"]
+theme_override_constants/separation = 40
+alignment = 1

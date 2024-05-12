@@ -1,0 +1,66 @@
+[gd_scene load_steps=13 format=3 uid="uid://d3v6bw0vevyxh"]
+
+[ext_resource type="PackedScene" uid="uid://cfugnx0rji675" path="res://scenes/Characters/CharacterGeneric.tscn" id="1_7kkcp"]
+[ext_resource type="Script" path="res://scripts/State/IdleState.gd" id="2_5bngj"]
+[ext_resource type="Script" path="res://scripts/State/RunningState.gd" id="3_6am34"]
+[ext_resource type="Script" path="res://scripts/State/JumpState.gd" id="4_5gsxi"]
+[ext_resource type="Script" path="res://scripts/State/FallState.gd" id="5_4v3me"]
+[ext_resource type="Script" path="res://scripts/State/BendState.gd" id="6_0f4wh"]
+[ext_resource type="Script" path="res://scripts/State/InWallState.gd" id="6_nd6g0"]
+[ext_resource type="Script" path="res://scripts/State/WallJumpState.gd" id="7_wd2m8"]
+[ext_resource type="Script" path="res://scripts/State/BendJump.gd" id="9_jlqov"]
+[ext_resource type="Script" path="res://scripts/State/SlideState.gd" id="10_222jv"]
+[ext_resource type="Texture2D" uid="uid://bichrv1saygos" path="res://sprites/IdleCharacter.png" id="11_bnrjc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7ku3"]
+size = Vector2(11, 32)
+
+[node name="Player" instance=ExtResource("1_7kkcp")]
+
+[node name="FSM" parent="." index="0"]
+jump = 150
+speed = 175
+bendSpeed = 75
+slideSpeed = 400
+gravity = 300
+gravityInWall = 20
+jumpMaxBend = 300
+initial_state = null
+
+[node name="Idle" type="Node" parent="FSM" index="0"]
+script = ExtResource("2_5bngj")
+
+[node name="Running" type="Node" parent="FSM" index="1"]
+script = ExtResource("3_6am34")
+
+[node name="Jump" type="Node" parent="FSM" index="2"]
+script = ExtResource("4_5gsxi")
+
+[node name="Fall" type="Node" parent="FSM" index="3"]
+script = ExtResource("5_4v3me")
+
+[node name="Bend" type="Node" parent="FSM" index="4"]
+script = ExtResource("6_0f4wh")
+
+[node name="InWall" type="Node" parent="FSM" index="5"]
+script = ExtResource("6_nd6g0")
+
+[node name="WallJump" type="Node" parent="FSM" index="6"]
+script = ExtResource("7_wd2m8")
+
+[node name="BendJump" type="Node" parent="FSM" index="7"]
+script = ExtResource("9_jlqov")
+
+[node name="Slide" type="Node" parent="FSM" index="8"]
+script = ExtResource("10_222jv")
+
+[node name="CollisionShape2D" parent="." index="3"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_v7ku3")
+
+[node name="Sprite2D" parent="." index="4"]
+texture_filter = 1
+texture = ExtResource("11_bnrjc")
+
+[node name="Camera2D" parent="." index="5"]
+zoom = Vector2(3, 3)

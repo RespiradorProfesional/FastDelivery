@@ -18,13 +18,7 @@ size = Vector2(11, 32)
 [node name="Player" instance=ExtResource("1_7kkcp")]
 
 [node name="FSM" parent="." index="0" node_paths=PackedStringArray("initial_state")]
-speed = 175
-bendSpeed = 75
-slideSpeed = 400
-gravity = 300
-gravityInWall = 20
-jumpMaxBend = 300
-jump = 150
+jump = 200
 initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="FSM" index="0"]

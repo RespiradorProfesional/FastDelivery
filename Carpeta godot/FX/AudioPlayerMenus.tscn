@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://yd86sbfaqaal"]
+
+[ext_resource type="Script" path="res://FX/AudioPlayerMenuBackground.gd" id="1_ki6ef"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_ki6ef")
+
+[node name="AudioStreamPlayerBackground" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamEffects" type="AudioStreamPlayer" parent="."]
