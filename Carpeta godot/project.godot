@@ -19,6 +19,14 @@ config/icon="res://icon.svg"
 
 GlobalVariable="*res://scripts/Singleton/Global_Variable.gd"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
+
 [input]
 
 MoveRight={

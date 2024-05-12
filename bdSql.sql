@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS Records (
     user_id INT,
     level_id INT,
     completion_time_seconds INT,
-    FOREIGN KEY (user_id) REFERENCES Users(user_id),
+    FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE,
     FOREIGN KEY (level_id) REFERENCES Levels(level_id)
 );
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS Messages (
     message_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
     message_text TEXT,
-    FOREIGN KEY (user_id) REFERENCES Users(user_id)
+    FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE
 );
 
 INSERT INTO Users (username, password) VALUES
@@ -59,7 +59,7 @@ INSERT INTO Messages (user_id, message_text) VALUES
 (2, 'Este es un mensaje del usuario 2'),
 (3, 'Este es un mensaje del usuario 3');
 
-select * from Records;
+select * from Users;
 
 SELECT Users.username, Records.completion_time_seconds
 FROM Users

@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bumjnmwoykgx3"]
+[gd_scene load_steps=7 format=3 uid="uid://bumjnmwoykgx3"]
 
 [ext_resource type="Script" path="res://scripts/Ui/MainMenu.gd" id="1_uyopf"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_21sdo"]
-font_size = 50
+[ext_resource type="Texture2D" uid="uid://beei7p53va2s5" path="res://Ui elements/logo.png" id="2_5wvi0"]
+[ext_resource type="FontFile" uid="uid://8aeko7ieavnx" path="res://Signwood-2Om7l.ttf" id="2_40uhi"]
+[ext_resource type="Texture2D" uid="uid://cagfyi3sw5v4w" path="res://Ui elements/Main menu/backgroundMenu.png" id="2_w6yig"]
+[ext_resource type="Theme" uid="uid://iwupsatdtbhm" path="res://Ui elements/Themes/buttonMenu.tres" id="4_ytekm"]
+[ext_resource type="Theme" uid="uid://boam1jdqa35hn" path="res://Ui elements/Themes/userIconMenu.tres" id="6_o6kgm"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -21,6 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_w6yig")
 
 [node name="HBoxMainScreen" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -28,85 +31,106 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 123.0
+offset_bottom = -174.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxMainScreen"]
 layout_mode = 2
-theme_override_constants/separation = 70
+theme_override_constants/separation = 30
 alignment = 1
 
-[node name="Label" type="Label" parent="HBoxMainScreen/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxMainScreen/VBoxContainer"]
 layout_mode = 2
-text = "Fast Delivery"
-label_settings = SubResource("LabelSettings_21sdo")
-horizontal_alignment = 1
+texture = ExtResource("2_5wvi0")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxMainScreen/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 30
 
 [node name="JugarButton" type="Button" parent="HBoxMainScreen/VBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 size_flags_horizontal = 8
+theme = ExtResource("4_ytekm")
+theme_override_fonts/font = ExtResource("2_40uhi")
 text = "Jugar"
 
 [node name="Records" type="Button" parent="HBoxMainScreen/VBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 30)
+custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 size_flags_horizontal = 8
+theme = ExtResource("4_ytekm")
 text = "Records
 "
 
 [node name="Button3" type="Button" parent="HBoxMainScreen/VBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 30)
+custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 size_flags_horizontal = 8
+theme = ExtResource("4_ytekm")
+theme_override_fonts/font = ExtResource("2_40uhi")
 text = "Creditos"
 
 [node name="Button4" type="Button" parent="HBoxMainScreen/VBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 30)
+custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 size_flags_horizontal = 8
+theme = ExtResource("4_ytekm")
+theme_override_fonts/font = ExtResource("2_40uhi")
 text = "Salir"
 
-[node name="Ajute" type="Button" parent="HBoxMainScreen/VBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(100, 30)
+[node name="AjuteButton" type="Button" parent="HBoxMainScreen/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 8
-text = "Ajute"
+theme = ExtResource("6_o6kgm")
 
 [node name="VBoxUserScreen" type="VBoxContainer" parent="."]
 visible = false
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -52.0
-offset_right = 100.0
-offset_bottom = 52.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="Button" type="Button" parent="VBoxUserScreen"]
+[node name="newPasswordContainer" type="HBoxContainer" parent="VBoxUserScreen"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="NewPassword" type="LineEdit" parent="VBoxUserScreen/newPasswordContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+placeholder_text = "Nueva contraseña"
+
+[node name="Button" type="Button" parent="VBoxUserScreen/newPasswordContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "Aceptar"
+
+[node name="ModifyUserButton" type="Button" parent="VBoxUserScreen"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Borrar"
+text = "Modificar contraseña"
 
-[node name="Button2" type="Button" parent="VBoxUserScreen"]
+[node name="DeleteUserButton" type="Button" parent="VBoxUserScreen"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Modificar"
+text = "Eliminar Cuente"
 
-[connection signal="pressed" from="HBoxMainScreen/VBoxContainer/VBoxContainer/JugarButton" to="." method="_on_button_pressed"]
+[node name="HTTPRequest" type="HTTPRequest" parent="VBoxUserScreen"]
+
+[connection signal="pressed" from="HBoxMainScreen/VBoxContainer/VBoxContainer/JugarButton" to="." method="_on_jugar_button_pressed"]
 [connection signal="pressed" from="HBoxMainScreen/VBoxContainer/VBoxContainer/Records" to="." method="_on_records_pressed"]
-[connection signal="pressed" from="HBoxMainScreen/VBoxContainer/VBoxContainer/Ajute" to="." method="_on_ajute_pressed"]
+[connection signal="pressed" from="HBoxMainScreen/VBoxContainer/VBoxContainer/AjuteButton" to="." method="_on_ajute_button_pressed"]
+[connection signal="pressed" from="VBoxUserScreen/newPasswordContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxUserScreen/ModifyUserButton" to="." method="_on_modify_user_button_pressed"]
+[connection signal="pressed" from="VBoxUserScreen/DeleteUserButton" to="." method="_on_delete_user_button_pressed"]
+[connection signal="request_completed" from="VBoxUserScreen/HTTPRequest" to="." method="_on_http_request_request_completed"]

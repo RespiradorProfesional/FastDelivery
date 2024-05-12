@@ -45,6 +45,7 @@ func _on_http_request_login_request_completed(result, response_code, headers, bo
 	if data["response"]==true:
 		GlobalVariable.userId=data.user.user_id
 		GlobalVariable.userName=data.user.username
+		GlobalVariable.userPassw=data.user.password
 		get_tree().change_scene_to_file("res://scenes/Ui/MainMenu.tscn")
 	else :
 		print("no")
