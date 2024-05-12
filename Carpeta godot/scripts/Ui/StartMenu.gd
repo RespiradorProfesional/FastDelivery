@@ -13,8 +13,6 @@ extends Control
 func _ready():
 	AudioPlayerBackground.play_music_start_sreen_background()
 	
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

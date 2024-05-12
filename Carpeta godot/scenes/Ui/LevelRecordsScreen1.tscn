@@ -4,6 +4,7 @@
 
 [node name="Control" instance=ExtResource("1_damt7")]
 level = "1"
+levelName = "Level 1"
 
 [node name="HboxTemplate" parent="." index="4"]
 theme_override_constants/separation = 40

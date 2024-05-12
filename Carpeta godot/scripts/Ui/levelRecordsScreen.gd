@@ -2,6 +2,7 @@ extends Control
 class_name levelRecordsScript
 
 @export var level=""
+@export var levelName=""
 @onready var http_request= $HTTPRequest
 @onready var vBox= $VBoxContainer
 @onready var label_template= $LabelTemplate
@@ -12,7 +13,7 @@ class_name levelRecordsScript
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	http_request.request(GlobalVariable.urlBaseApi+"/records/"+level)
+	http_request.request(GlobalVariable.urlBaseApi+"/records/"+levelName)
 	titleText.text="Records " + level
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
@@ -23,9 +24,12 @@ func _input(event):
 func _on_http_request_request_completed(result, response_code, headers, body):
 	
 	var data= JSON.parse_string(body.get_string_from_utf8())
+	var count = 0
 	for records in data.data:
 		create_label(str(records["username"]),str(records["completion_time_seconds"]))
-	
+		count += 1
+		if count >= 20:
+			break
 	
 
 func create_label(texto: String,textoPoints: String):
