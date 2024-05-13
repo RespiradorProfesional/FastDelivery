@@ -6,5 +6,6 @@
 script = ExtResource("1_ki6ef")
 
 [node name="AudioStreamPlayerBackground" type="AudioStreamPlayer" parent="."]
+volume_db = -12.123
 
 [node name="AudioStreamEffects" type="AudioStreamPlayer" parent="."]

@@ -2,8 +2,8 @@ extends Node
 class_name FiniteStateMachine
 
 @export var speed=200
-@export var bendSpeed=250
-@export var slideSpeed=250
+@export var bendSpeed=100
+@export var slideSpeed=400
 @export var gravity=500
 @export var gravityInWall=50
 @export var jumpMaxBend=600

@@ -1,9 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dk4eyx01s4voj"]
+[gd_scene load_steps=9 format=3 uid="uid://dk4eyx01s4voj"]
 
 [ext_resource type="Script" path="res://scripts/Ui/StartMenu.gd" id="1_x862d"]
+[ext_resource type="Texture2D" uid="uid://debq647hp1ync" path="res://Ui elements/Start screen/background.png" id="2_st8l2"]
+[ext_resource type="Texture2D" uid="uid://y3t7stqj8bb7" path="res://Ui elements/Start screen/f.png" id="3_2vxvn"]
+[ext_resource type="Texture2D" uid="uid://dgw3tsllhc3re" path="res://Ui elements/Start screen/aster delivery.png" id="4_7rmr7"]
+[ext_resource type="Theme" uid="uid://iwupsatdtbhm" path="res://Ui elements/Themes/itemsMenu.tres" id="5_0k6t6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_orq1s"]
-font_size = 30
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_hhp02"]
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_e05vi"]
+font_size = 60
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -14,7 +24,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x862d")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_st8l2")
+
+[node name="ColorRectUserSesion" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="VBoxPressStart" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,46 +52,33 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 2
 
-[node name="UserSesion" type="VBoxContainer" parent="VBoxContainer"]
-visible = false
+[node name="Panel" type="Panel" parent="VBoxPressStart"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 20
-alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/UserSesion"]
+[node name="logoF" type="TextureRect" parent="VBoxPressStart/Panel"]
 layout_mode = 2
-text = "Nombre"
-horizontal_alignment = 1
-
-[node name="NameTextField" type="LineEdit" parent="VBoxContainer/UserSesion"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
+offset_left = 417.0
+offset_top = 238.0
+offset_right = 917.0
+offset_bottom = 738.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
+texture = ExtResource("3_2vxvn")
 
-[node name="Label2" type="Label" parent="VBoxContainer/UserSesion"]
+[node name="TextureRect2" type="TextureRect" parent="VBoxPressStart/Panel"]
 layout_mode = 2
-text = "Contraseña"
-horizontal_alignment = 1
-
-[node name="PasswTextField" type="LineEdit" parent="VBoxContainer/UserSesion"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
+offset_left = 669.0
+offset_top = 459.0
+offset_right = 1369.0
+offset_bottom = 709.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
+texture = ExtResource("4_7rmr7")
 
-[node name="LoginButton" type="Button" parent="VBoxContainer/UserSesion"]
-custom_minimum_size = Vector2(100, 30)
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Login"
-
-[node name="RegisterButton" type="Button" parent="VBoxContainer/UserSesion"]
-custom_minimum_size = Vector2(100, 30)
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Registrar"
-
-[node name="LabelStart" type="Label" parent="VBoxContainer"]
+[node name="LabelStart" type="Label" parent="VBoxPressStart"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "Pulse cualquier boton"
@@ -70,11 +86,61 @@ label_settings = SubResource("LabelSettings_orq1s")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HTTPRequestLogin" type="HTTPRequest" parent="."]
+[node name="UserSesion" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Label" type="Label" parent="UserSesion"]
+layout_mode = 2
+text = "Nombre"
+label_settings = SubResource("LabelSettings_hhp02")
+horizontal_alignment = 1
+
+[node name="NameTextField" type="LineEdit" parent="UserSesion"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("5_0k6t6")
+
+[node name="Label2" type="Label" parent="UserSesion"]
+layout_mode = 2
+text = "Contraseña"
+label_settings = SubResource("LabelSettings_e05vi")
+horizontal_alignment = 1
+
+[node name="PasswTextField" type="LineEdit" parent="UserSesion"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("5_0k6t6")
+
+[node name="LoginButton" type="Button" parent="UserSesion"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("5_0k6t6")
+text = "Login"
+
+[node name="RegisterButton" type="Button" parent="UserSesion"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("5_0k6t6")
+text = "Registrar"
 
 [node name="HTTPRequestRegister" type="HTTPRequest" parent="."]
 
-[connection signal="pressed" from="VBoxContainer/UserSesion/LoginButton" to="." method="_on_login_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/UserSesion/RegisterButton" to="." method="_on_register_button_pressed"]
-[connection signal="request_completed" from="HTTPRequestLogin" to="." method="_on_http_request_login_request_completed"]
+[node name="HTTPRequestLogin" type="HTTPRequest" parent="."]
+
+[connection signal="pressed" from="UserSesion/LoginButton" to="." method="_on_login_button_pressed"]
+[connection signal="pressed" from="UserSesion/RegisterButton" to="." method="_on_register_button_pressed"]
 [connection signal="request_completed" from="HTTPRequestRegister" to="." method="_on_http_request_register_request_completed"]
+[connection signal="request_completed" from="HTTPRequestLogin" to="." method="_on_http_request_login_request_completed"]

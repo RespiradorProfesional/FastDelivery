@@ -1,29 +1,28 @@
 extends Control
 
-@onready var userSesion=$VBoxContainer/UserSesion
-@onready var LabelStart=$VBoxContainer/LabelStart
+@onready var userSesion=$UserSesion
+@onready var labelStart=$VBoxPressStart/LabelStart
 @onready var http_requestlogin= $HTTPRequestLogin
 @onready var http_requestregister= $HTTPRequestRegister
-@onready var nameTextField= $VBoxContainer/UserSesion/NameTextField
-@onready var passwTextField= $VBoxContainer/UserSesion/PasswTextField
-
-
+@onready var nameTextField= $UserSesion/NameTextField
+@onready var passwTextField= $UserSesion/PasswTextField
+@onready var colorRectUserSesion=$ColorRectUserSesion
+@onready var logoFImage=$VBoxContainer/VBoxContainer/logoF
+@onready var vBoxPressStart=$VBoxPressStart
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	AudioPlayerBackground.play_music_start_sreen_background()
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 func _input(event):
 	if event is InputEventKey:
 		var key_event = event as InputEventKey
 		if key_event.pressed:
-			LabelStart.visible=false
+			labelStart.visible=false
+			vBoxPressStart.visible=false
 			userSesion.visible=true
+			colorRectUserSesion.visible=true
+
 
 
 

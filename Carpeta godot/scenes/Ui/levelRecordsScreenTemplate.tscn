@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdkuavy38da7l"]
+[gd_scene load_steps=5 format=3 uid="uid://bdkuavy38da7l"]
 
 [ext_resource type="Script" path="res://scripts/Ui/levelRecordsScreen.gd" id="1_27hm5"]
 [ext_resource type="Theme" uid="uid://iwupsatdtbhm" path="res://Ui elements/Themes/itemsMenu.tres" id="2_3gp0f"]
 [ext_resource type="Texture2D" uid="uid://cagfyi3sw5v4w" path="res://Ui elements/Main menu/backgroundMenu.png" id="3_qt6g0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ubpyt"]
+font_size = 40
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -28,6 +31,7 @@ texture = ExtResource("3_qt6g0")
 layout_mode = 2
 offset_right = 1152.0
 offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_ubpyt")
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]

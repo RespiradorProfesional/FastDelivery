@@ -6,10 +6,18 @@ extends Control
 @onready var newPassword=$VBoxUserScreen/VBoxContainer/newPasswordContainer/NewPassword
 @onready var httpRequest=$VBoxUserScreen/HTTPRequest
 @onready var colorRectUserScreen=$ColorRectUserScreen
+@onready var motoCycleImage=$MotoCycle
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	menu_hover()
 	AudioPlayerBackground.play_music_main_background()
+
+func menu_hover():
+	var menuHover = get_tree().create_tween().set_loops()
+	menuHover.tween_property(motoCycleImage, "position", Vector2(1050,400),2.3)
+	menuHover.tween_property(motoCycleImage, "position", Vector2(1150,400),2.3)
+	
 
 func _input(event):
 	if Input.is_action_just_pressed("Escape"):

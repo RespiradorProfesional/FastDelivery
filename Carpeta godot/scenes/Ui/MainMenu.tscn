@@ -1,11 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://bumjnmwoykgx3"]
+[gd_scene load_steps=11 format=3 uid="uid://bumjnmwoykgx3"]
 
 [ext_resource type="Script" path="res://scripts/Ui/MainMenu.gd" id="1_uyopf"]
 [ext_resource type="Texture2D" uid="uid://beei7p53va2s5" path="res://Ui elements/logo.png" id="2_5wvi0"]
 [ext_resource type="FontFile" uid="uid://8aeko7ieavnx" path="res://Signwood-2Om7l.ttf" id="2_40uhi"]
 [ext_resource type="Texture2D" uid="uid://cagfyi3sw5v4w" path="res://Ui elements/Main menu/backgroundMenu.png" id="2_w6yig"]
+[ext_resource type="Texture2D" uid="uid://b3iab5a8mjvqt" path="res://Ui elements/Main menu/moto.png" id="3_liggx"]
 [ext_resource type="Theme" uid="uid://iwupsatdtbhm" path="res://Ui elements/Themes/itemsMenu.tres" id="4_ytekm"]
 [ext_resource type="Theme" uid="uid://boam1jdqa35hn" path="res://Ui elements/Themes/userIconMenu.tres" id="6_o6kgm"]
+[ext_resource type="Texture2D" uid="uid://dr4fglh4m6ohp" path="res://Ui elements/black.jpg" id="7_q3hwq"]
+
+[sub_resource type="Curve" id="Curve_c4no2"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0.0460993, 360), 0.0, 0.0, 0, 0, Vector2(0.521277, -128.571), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_rjp2i"]
+_data = [Vector2(0.177305, 0.802746), 0.0, 0.0, 0, 0, Vector2(0.606383, 0.53974), 0.0, 0.0, 0, 0, Vector2(0.971631, 0.276734), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -24,6 +36,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_w6yig")
+
+[node name="MotoCycle" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 1181.0
+offset_top = 405.0
+offset_right = 1681.0
+offset_bottom = 905.0
+texture = ExtResource("3_liggx")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="MotoCycle"]
+position = Vector2(169, 470)
+lifetime = 1.2
+texture = ExtResource("7_q3hwq")
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector2(-700, -100)
+initial_velocity_max = 125.83
+angular_velocity_min = -428.75
+angular_velocity_max = 209.8
+angle_curve = SubResource("Curve_c4no2")
+scale_amount_min = 0.0
+scale_amount_max = 0.04
+scale_amount_curve = SubResource("Curve_rjp2i")
 
 [node name="HBoxMainScreen" type="HBoxContainer" parent="."]
 layout_mode = 1

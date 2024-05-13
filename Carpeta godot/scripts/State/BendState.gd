@@ -28,6 +28,8 @@ func Update(_delta : float):
 		player.velocity.x = direction * jumpBend
 		Transitioned.emit(self, "BendJump")
 		
+	if !player.is_on_floor():
+		Transitioned.emit(self,"Fall")
 	player.move_and_slide()
 	
 	if !Input.is_action_pressed("Bend"):

@@ -13,8 +13,8 @@ class_name levelRecordsScript
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	http_request.request(GlobalVariable.urlBaseApi+"/records/"+levelName)
-	titleText.text="Records " + level
+	http_request.request(GlobalVariable.urlBaseApi+"/records/"+level)
+	titleText.text="Records " + levelName
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _input(event):
