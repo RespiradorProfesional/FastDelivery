@@ -4,7 +4,12 @@ var player : CharacterBody2D
 @export var animation_Tree : AnimationTree
 @onready var fsm = get_parent()
 
-# Called when the node enters the scene tree for the first time.
+#momento dado para no obtener el player cada vez que entras a un estado puedo crear un nuevo
+#metodo en State y poner al atributo de player para que todas las clases que 
+#extiendan de el lo tengan
+
+
+
 func Enter():
 	fsm.resetJumpWall=true
 	player = get_tree().get_first_node_in_group("Player")
