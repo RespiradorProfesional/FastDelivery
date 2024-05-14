@@ -8,7 +8,6 @@ class_name FiniteStateMachine
 @export var gravityInWall=50
 @export var jumpMaxBend=600
 @export var jump=200
-@export var dashSpeed=10
 
 var resetJumpWall=true
 var resetGravityWall=true

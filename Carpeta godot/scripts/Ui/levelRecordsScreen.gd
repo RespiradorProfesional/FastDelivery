@@ -32,14 +32,14 @@ func _on_http_request_request_completed(result, response_code, headers, body):
 			break
 	
 
-func create_label(texto: String,textoPoints: String):
+func create_label(text: String,textPoints: String):
 	# Clona la plantilla de etiqueta
 	var new_label = label_template.duplicate()
 	var new_label2 = label_template.duplicate()
 	var hBox = hboxTemplate.duplicate() 
 	# Configura el texto de la etiqueta
-	new_label.text = texto
-	new_label2.text = textoPoints
+	new_label.text = text
+	new_label2.text = textPoints
 	hBox.add_child(new_label)
 	hBox.add_child(new_label2)
 	# Agrega la etiqueta al padre (por ejemplo, un VBoxContainer)
