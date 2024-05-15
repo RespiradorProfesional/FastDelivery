@@ -3,7 +3,7 @@ extends Node
 const music_main_background= preload("res://FX/backgroundMusics/Emisphere.mp3")
 const music_start_screen_background= preload("res://FX/backgroundMusics/Press_Start.mp3")
 const music_level1_background= preload("res://FX/backgroundMusics/level1.mp3")
-const sound_button_main= preload("res://FX/sounds/buttonMainSound.wav")
+const sound_button_main= preload("res://FX/sounds/menu songs/buttonMainSound.wav")
 
 @onready var audioPlayerBackground= $AudioStreamPlayerBackground
 
