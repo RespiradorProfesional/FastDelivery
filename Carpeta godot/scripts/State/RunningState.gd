@@ -1,17 +1,7 @@
 extends State
 
-@export var animation_Tree : AnimationTree
-@onready var fsm = get_parent()
-
-@export var dashSpeed=10
-var player : CharacterBody2D
-#va al reves derecha y izquierda osea no se para
-var canDash=false
-
 # Called when the node enters the scene tree for the first time.
 func Enter():
-	player = get_tree().get_first_node_in_group("Player")
-	
 	fsm.resetJumpWall=true
 	pass
 

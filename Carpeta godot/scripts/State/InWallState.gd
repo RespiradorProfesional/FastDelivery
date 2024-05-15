@@ -1,10 +1,5 @@
 extends State
 
-
-@export var animation_Tree : AnimationTree
-@onready var fsm = get_parent()
-
-var player : CharacterBody2D
 var lastDirection=0
 var lastDirectionJump=0
 
@@ -14,7 +9,6 @@ var lastDirectionJump=0
 #detectar si la pared es una pared y no un objeto cualquiera
 
 func Enter():
-	player = get_tree().get_first_node_in_group("Player")
 	if fsm.resetJumpWall :
 		lastDirectionJump=0
 		player.velocity.y = 0

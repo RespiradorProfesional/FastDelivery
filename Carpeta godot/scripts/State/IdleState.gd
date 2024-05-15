@@ -1,8 +1,5 @@
 extends State
 class_name PlayerIdle
-var player : CharacterBody2D
-@export var animation_Tree : AnimationTree
-@onready var fsm = get_parent()
 
 #momento dado para no obtener el player cada vez que entras a un estado puedo crear un nuevo
 #metodo en State y poner al atributo de player para que todas las clases que 
@@ -12,12 +9,10 @@ var player : CharacterBody2D
 
 func Enter():
 	fsm.resetJumpWall=true
-	player = get_tree().get_first_node_in_group("Player")
-	pass
+	
 	#animation_Tree.set("")
 
 func Update(_delta : float):
-	
 	
 	if Input.get_axis("MoveLeft", "MoveRight"):
 		Transitioned.emit(self, "Running")

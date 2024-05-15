@@ -1,17 +1,11 @@
 extends State
 
-@export var animation_Tree : AnimationTree
-@onready var fsm = get_parent()
-#@export var jump_horizontal_speed=500
-
-var player : CharacterBody2D
 var finishJumpTime
 
 # hacer que s epueda mover despues de un wall jump pero la direccion ahora tiene que ser contraria
 # a la que hizo la ultima vez que hizo el wall jump
 
 func Enter():
-	player = get_tree().get_first_node_in_group("Player")
 	player.velocity.y += -fsm.jump*1.25
 	finishJumpTime=false
 	await get_tree().create_timer(0.3).timeout

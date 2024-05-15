@@ -1,14 +1,10 @@
 extends State
 
-@export var animation_Tree : AnimationTree
-@onready var fsm = get_parent()
 var actualVelocity=0
 var lastDirection=0
 
-var player : CharacterBody2D
 # Called when the node enters the scene tree for the first time.
 func Enter():
-	player = get_tree().get_first_node_in_group("Player")
 	lastDirection = Input.get_axis("MoveLeft", "MoveRight")
 	
 	player.velocity.x = lastDirection * fsm.slideSpeed
