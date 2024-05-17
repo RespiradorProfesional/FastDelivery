@@ -16,7 +16,6 @@ func Enter():
 	pass
 
 func Update(_delta : float):
-	var direction = Input.get_axis("MoveLeft", "MoveRight")
 	
 	if direction!=0 :
 		lastDirection=direction

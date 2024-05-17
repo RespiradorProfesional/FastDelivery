@@ -13,7 +13,6 @@ func Enter():
 	pass
 
 func Update(_delta : float):
-	var direction = Input.get_axis("MoveLeft", "MoveRight")
 	player.velocity.y += fsm.gravity * _delta
 	
 	if direction!=0 and finishJumpTime:

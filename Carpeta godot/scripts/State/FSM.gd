@@ -9,9 +9,13 @@ class_name FiniteStateMachine
 @export var jumpMaxBend=600
 @export var jump=200
 
+@export var animation_Tree : AnimationTree
+@export var animation_Player : AnimationPlayer
+
 var resetJumpWall=true
 var resetGravityWall=true
 
+var lastDirection=1
 
 var states : Dictionary = {}
 var current_state : State
@@ -34,7 +38,11 @@ func _ready():
 func _process(delta):
 	if current_state:
 		current_state.Update(delta)
-		
+	
+	if (lastDirection!=0):
+		for path in GlobalVariable.blend_pos_paths:
+			animation_Tree.set(path, lastDirection)
+	
 
 
 func change_state(source_state : State, new_state_name : String):
@@ -54,5 +62,11 @@ func change_state(source_state : State, new_state_name : String):
 	new_state.Enter()
 	
 	current_state = new_state
+	animation_change(new_state_name.to_lower())
 
-#endregion
+func animation_change(new_state_name):
+	animation_Tree.set("parameters/conditions/isIdle",new_state_name=="idle")
+	animation_Tree.set("parameters/conditions/isRunning",new_state_name=="running")
+	animation_Tree.set("parameters/conditions/isJump", new_state_name=="jump")
+
+

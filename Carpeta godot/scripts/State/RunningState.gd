@@ -7,7 +7,7 @@ func Enter():
 
 func Update(_delta : float):
 	
-	var direction = Input.get_axis("MoveLeft", "MoveRight")
+	
 	if direction:
 		player.velocity.x = direction * fsm.speed
 	

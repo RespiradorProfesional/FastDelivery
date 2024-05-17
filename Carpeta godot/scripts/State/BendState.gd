@@ -10,7 +10,6 @@ func Enter():
 	pass
 
 func Update(_delta : float):
-	var direction = Input.get_axis("MoveLeft", "MoveRight")
 	
 	
 	player.velocity.x = direction * fsm.bendSpeed

@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://b3doodk1ierdd"]
+[gd_scene load_steps=17 format=3 uid="uid://b3doodk1ierdd"]
 
+[ext_resource type="Script" path="res://scripts/levels/Level1.gd" id="1_gwe26"]
 [ext_resource type="PackedScene" uid="uid://d3v6bw0vevyxh" path="res://scenes/DefaultRunner.tscn" id="2_1xn5y"]
 [ext_resource type="Texture2D" uid="uid://b45f673np4ow6" path="res://sprites/TileMap/Nivel 1/Ciudad/TileMapCiudad1.png" id="2_juuse"]
 [ext_resource type="Texture2D" uid="uid://b7luk03tx5q8w" path="res://sprites/ParallaxFondos/Nivel 1/Ciudad1er.png" id="4_3v8vx"]
@@ -426,9 +427,10 @@ size = Vector2(32, 35)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(-102, 183)
+script = ExtResource("1_gwe26")
 
 [node name="Player" parent="." instance=ExtResource("2_1xn5y")]
-position = Vector2(206, 296)
+position = Vector2(213, 301)
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -508,7 +510,6 @@ texture = ExtResource("7_jsqe6")
 [node name="Score Items" type="Node2D" parent="."]
 script = ExtResource("7_syxky")
 ruteScene = "res://scenes/Ui/MainMenu.tscn"
-actualLevel = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Score Items"]
 

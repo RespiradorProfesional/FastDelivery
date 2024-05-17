@@ -5,7 +5,7 @@ var lastDirection=0
 
 # Called when the node enters the scene tree for the first time.
 func Enter():
-	lastDirection = Input.get_axis("MoveLeft", "MoveRight")
+	lastDirection = direction
 	
 	player.velocity.x = lastDirection * fsm.slideSpeed
 	actualVelocity=0

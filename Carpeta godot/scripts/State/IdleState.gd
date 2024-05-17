@@ -9,8 +9,7 @@ class_name PlayerIdle
 
 func Enter():
 	fsm.resetJumpWall=true
-	
-	#animation_Tree.set("")
+	print("Idle")
 
 func Update(_delta : float):
 	

@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var timer=$Timer
 @export var ruteScene=""
-@export var actualLevel=0
+@export var actualLevel_id=0
 var seconds
 @onready var cronometre=$CanvasLayer/Label
 @onready var finalLevel=$finalLevel
@@ -32,7 +32,7 @@ func _on_timer_timeout():
 
 func _on_final_level_body_entered(body):
 	var newScene = load(ruteScene)
-	var json = JSON.stringify({"user_id":GlobalVariable.userId,"level_id":actualLevel,"time":seconds})
+	var json = JSON.stringify({"user_id":GlobalVariable.userId,"level_id":actualLevel_id,"time":seconds})
 	
 	var headers = ["Content-Type: application/json"]
 	httpdRequest.request(GlobalVariable.urlBaseApi+"/records",headers,HTTPClient.METHOD_POST,json)

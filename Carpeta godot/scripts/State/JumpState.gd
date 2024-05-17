@@ -6,10 +6,10 @@ extends State
 
 func Enter():
 	player.velocity.y += -fsm.jump
+	print("Jump")
 	pass
 
 func Update(_delta : float):
-	var direction = Input.get_axis("MoveLeft", "MoveRight")
 	player.velocity.y += fsm.gravity * _delta
 	
 	player.velocity.x = direction * fsm.speed
