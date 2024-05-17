@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://brnrxo4odbrl6"]
+
+[ext_resource type="Script" path="res://scripts/levels/Level1TownFinish.gd" id="1_yemtd"]
+[ext_resource type="PackedScene" uid="uid://biyweken06r0j" path="res://scenes/Levels/controlLevelCalification.tscn" id="2_7sqv8"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_yemtd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(965, 542)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="controlLevelCalification" parent="." instance=ExtResource("2_7sqv8")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+recordBronze = 40
+recordSilver = 20
+recordGold = 10

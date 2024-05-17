@@ -425,6 +425,7 @@ dialogue = "timelineLvl1_Starts"
 
 [node name="Score Items" parent="." index="0"]
 position = Vector2(32, 199)
+ruteScene = "res://scenes/Levels/Level1TownFinish.tscn"
 actualLevel_id = 1
 
 [node name="Player" parent="." index="1" instance=ExtResource("2_l7chg")]

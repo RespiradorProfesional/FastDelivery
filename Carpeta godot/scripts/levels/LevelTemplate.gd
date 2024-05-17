@@ -19,9 +19,10 @@ func run_dialogue(dialogue_string):
 	Dialogic.start(dialogue_string)
 
 func start_level(args: String):
-	score_items.start_time()
-	GlobalVariable.isChatting=false
-	print("EMPEZOOOOOOOO")
+	if args=="exit_dialogue_starts":
+		score_items.start_time()
+		GlobalVariable.isChatting=false
+		print("EMPEZOOOOOOOO")
 
 
 

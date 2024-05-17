@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://biyweken06r0j"]
+
+[ext_resource type="Script" path="res://scripts/levels/controlLevelCalification.gd" id="1_isdts"]
+[ext_resource type="Texture2D" uid="uid://dy40p5l23ne7b" path="res://icon.svg" id="2_sb8ci"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4pqyv"]
+font_size = 50
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_isdts")
+
+[node name="ScorePanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreLabel" type="Label" parent="ScorePanel"]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 234.0
+offset_right = 1159.0
+offset_bottom = 617.0
+label_settings = SubResource("LabelSettings_4pqyv")
+
+[node name="TextureRect" type="TextureRect" parent="ScorePanel"]
+layout_mode = 0
+offset_left = 990.0
+offset_top = 380.0
+offset_right = 1811.0
+offset_bottom = 858.0
+texture = ExtResource("2_sb8ci")
+
+[node name="Timer" type="Timer" parent="."]
