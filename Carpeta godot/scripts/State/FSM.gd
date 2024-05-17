@@ -37,32 +37,35 @@ func _ready():
 #Call the current states update function continuosly
 func _process(delta):
 	if current_state:
-		current_state.Update(delta)
+			current_state.Update(delta)
 	
 	if (lastDirection!=0):
 		for path in GlobalVariable.blend_pos_paths:
 			animation_Tree.set(path, lastDirection)
 	
+	
 
 
 func change_state(source_state : State, new_state_name : String):
-	if source_state != current_state:
-		#print("Invalid change_state trying from: " + source_state.name + " but currently in: " + current_state.name)
-		#This typically only happens when trying to switch from death state following a force_change
-		return
 	
-	var new_state = states.get(new_state_name.to_lower())
-	if !new_state:
-		print("New state is empty")
-		return
+	if !GlobalVariable.isChatting:
+		if source_state != current_state:
+			#print("Invalid change_state trying from: " + source_state.name + " but currently in: " + current_state.name)
+			#This typically only happens when trying to switch from death state following a force_change
+			return
 		
-	if current_state:
-		current_state.Exit()
+		var new_state = states.get(new_state_name.to_lower())
+		if !new_state:
+			print("New state is empty")
+			return
+			
+		if current_state:
+			current_state.Exit()
+			
+		new_state.Enter()
 		
-	new_state.Enter()
-	
-	current_state = new_state
-	animation_change(new_state_name.to_lower())
+		current_state = new_state
+		animation_change(new_state_name.to_lower())
 
 func animation_change(new_state_name):
 	animation_Tree.set("parameters/conditions/isIdle",new_state_name=="idle")

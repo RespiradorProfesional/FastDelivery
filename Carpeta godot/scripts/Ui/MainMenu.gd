@@ -26,8 +26,7 @@ func _input(event):
 
 func _on_jugar_button_pressed():
 	AudioPlayerBackground.play_sound_button()
-	AudioPlayerBackground.play_music_level1_background()
-	get_tree().change_scene_to_file("res://scenes/Levels/Level1.tscn")
+	get_tree().change_scene_to_file("res://scenes/Levels/Level1Town.tscn")
 
 func _on_records_pressed():
 	AudioPlayerBackground.play_sound_button()

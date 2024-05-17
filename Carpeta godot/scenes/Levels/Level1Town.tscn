@@ -1,17 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://b3doodk1ierdd"]
+[gd_scene load_steps=14 format=3 uid="uid://ciunbd6i236qf"]
 
-[ext_resource type="Script" path="res://scripts/levels/Level1.gd" id="1_gwe26"]
-[ext_resource type="PackedScene" uid="uid://d3v6bw0vevyxh" path="res://scenes/DefaultRunner.tscn" id="2_1xn5y"]
-[ext_resource type="Texture2D" uid="uid://b45f673np4ow6" path="res://sprites/TileMap/Nivel 1/Ciudad/TileMapCiudad1.png" id="2_juuse"]
-[ext_resource type="Texture2D" uid="uid://b7luk03tx5q8w" path="res://sprites/ParallaxFondos/Nivel 1/Ciudad1er.png" id="4_3v8vx"]
-[ext_resource type="Texture2D" uid="uid://da5bbn64i5rsi" path="res://sprites/ParallaxFondos/Nivel 1/Ciudad2er.png" id="5_583r6"]
-[ext_resource type="Texture2D" uid="uid://d21s4xsxwyrei" path="res://sprites/ParallaxFondos/Nivel 1/Ciudad3er.png" id="6_qtfaf"]
-[ext_resource type="Texture2D" uid="uid://dy40p5l23ne7b" path="res://icon.svg" id="7_1mler"]
-[ext_resource type="Texture2D" uid="uid://bp48vem8lepwj" path="res://Shaders/lightTriangule.jpg" id="7_jsqe6"]
-[ext_resource type="Script" path="res://scripts/Ui/Score.gd" id="7_syxky"]
+[ext_resource type="PackedScene" uid="uid://yt5p1fyl7o1c" path="res://scenes/Levels/levelTemplate.tscn" id="1_f2ewt"]
+[ext_resource type="PackedScene" uid="uid://d3v6bw0vevyxh" path="res://scenes/DefaultRunner.tscn" id="2_l7chg"]
+[ext_resource type="Texture2D" uid="uid://b45f673np4ow6" path="res://sprites/TileMap/Nivel 1/Ciudad/TileMapCiudad1.png" id="3_yqcfq"]
+[ext_resource type="Texture2D" uid="uid://b7luk03tx5q8w" path="res://sprites/ParallaxFondos/Nivel 1/Ciudad1er.png" id="4_5yg2g"]
+[ext_resource type="Texture2D" uid="uid://da5bbn64i5rsi" path="res://sprites/ParallaxFondos/Nivel 1/Ciudad2er.png" id="5_maety"]
+[ext_resource type="Texture2D" uid="uid://d21s4xsxwyrei" path="res://sprites/ParallaxFondos/Nivel 1/Ciudad3er.png" id="6_m82d4"]
+[ext_resource type="Texture2D" uid="uid://bp48vem8lepwj" path="res://Shaders/lightTriangule.jpg" id="7_2xlwt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j0n8x"]
-texture = ExtResource("2_juuse")
+texture = ExtResource("3_yqcfq")
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
@@ -400,13 +398,13 @@ texture = ExtResource("2_juuse")
 9:0/0/physics_layer_0/angular_velocity = 0.0
 9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 2, 8, 8, 8, 8, -8, 8)
 
-[sub_resource type="TileSet" id="TileSet_n0e2s"]
+[sub_resource type="TileSet" id="TileSet_am01i"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_j0n8x")
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cm8f2"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ra4nk"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_hpk85"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_jbgjs"]
 specular_color = Color(0.341176, 0.341176, 0.341176, 1)
 
 [sub_resource type="VisualShader" id="VisualShader_4mvof"]
@@ -419,23 +417,23 @@ render_mode blend_mix;
 mode = 1
 flags/light_only = false
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_78cpl"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8qpwb"]
 shader = SubResource("VisualShader_4mvof")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mt2j1"]
-size = Vector2(32, 35)
+[node name="Node2D" instance=ExtResource("1_f2ewt")]
+dialogue = "timelineLvl1_Starts"
 
-[node name="Node2D" type="Node2D"]
-position = Vector2(-102, 183)
-script = ExtResource("1_gwe26")
+[node name="Score Items" parent="." index="0"]
+position = Vector2(32, 199)
+actualLevel_id = 1
 
-[node name="Player" parent="." instance=ExtResource("2_1xn5y")]
-position = Vector2(213, 301)
+[node name="Player" parent="." index="1" instance=ExtResource("2_l7chg")]
+position = Vector2(80, 505)
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="." index="2"]
 texture_filter = 1
-position = Vector2(-419, -73)
-tile_set = SubResource("TileSet_n0e2s")
+position = Vector2(-544, 132)
+tile_set = SubResource("TileSet_am01i")
 format = 2
 layer_0/name = "Fondo"
 layer_1/name = "Carretera"
@@ -443,100 +441,66 @@ layer_1/tile_data = PackedInt32Array(1638440, 196608, 1, 1703976, 196608, 2, 176
 layer_2/name = "Decoracion"
 layer_2/tile_data = PackedInt32Array(1572913, 917504, 7, 1572914, 917504, 7, 1572915, 917504, 7, 1572916, 917504, 7, 1572917, 917504, 7, 1572918, 917504, 7, 1572919, 917504, 7, 1572920, 917504, 7, 1572921, 917504, 7, 1572922, 917504, 7, 1572923, 917504, 7, 1572924, 917504, 7, 1572925, 917504, 7, 1572926, 917504, 7, 1572927, 917504, 7, 1572928, 917504, 7, 1572929, 917504, 7, 1572930, 917504, 7, 1572931, 917504, 7, 1572932, 917504, 7, 1572933, 917504, 7, 1572934, 917504, 7, 1572935, 917504, 7, 1572936, 917504, 7, 1572937, 917504, 7, 1572938, 917504, 7, 1572939, 917504, 7, 1572940, 917504, 7, 1572941, 917504, 7, 1572942, 917504, 7, 1572943, 917504, 7, 1572944, 917504, 7, 1572945, 917504, 7, 1572946, 917504, 7, 1572947, 917504, 7, 1572948, 917504, 7, 1572949, 917504, 7, 1572950, 917504, 7, 1572951, 917504, 7, 1572912, 917504, 7, 1572911, 917504, 7, 1572910, 917504, 7, 1572909, 917504, 7, 1572908, 917504, 7, 1572907, 917504, 7, 1572906, 917504, 7, 1572905, 917504, 7, 1572904, 917504, 7)
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="3"]
 
-[node name="Cielo" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Cielo" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
 visible = false
-material = SubResource("CanvasItemMaterial_cm8f2")
+material = SubResource("CanvasItemMaterial_ra4nk")
 position = Vector2(-4, -312)
 motion_scale = Vector2(0, 0)
 motion_mirroring = Vector2(600, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Cielo"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Cielo" index="0"]
 texture_filter = 1
 position = Vector2(0, 306)
-texture = SubResource("CanvasTexture_hpk85")
+texture = SubResource("CanvasTexture_jbgjs")
 centered = false
 
-[node name="Ciudad1er" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Ciudad1er" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
 position = Vector2(1, 106)
 motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(600, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Ciudad1er"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Ciudad1er" index="0"]
 texture_filter = 1
-material = SubResource("ShaderMaterial_78cpl")
-texture = ExtResource("4_3v8vx")
+material = SubResource("ShaderMaterial_8qpwb")
+texture = ExtResource("4_5yg2g")
 centered = false
 
-[node name="Ciudad2er" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Ciudad2er" type="ParallaxLayer" parent="ParallaxBackground" index="2"]
 position = Vector2(1, 219)
 motion_scale = Vector2(0.7, 0.7)
 motion_mirroring = Vector2(600, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Ciudad2er"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Ciudad2er" index="0"]
 texture_filter = 1
-texture = ExtResource("5_583r6")
+texture = ExtResource("5_maety")
 centered = false
 
-[node name="Ciudad3er" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Ciudad3er" type="ParallaxLayer" parent="ParallaxBackground" index="3"]
 position = Vector2(0, 292)
 motion_scale = Vector2(0.9, 0.9)
 motion_mirroring = Vector2(600, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Ciudad3er"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Ciudad3er" index="0"]
 texture_filter = 1
-texture = ExtResource("6_qtfaf")
+texture = ExtResource("6_m82d4")
 centered = false
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-position = Vector2(98, -185)
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="4"]
+position = Vector2(51, -31)
 color = Color(0.639216, 0.639216, 0.639216, 1)
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-position = Vector2(100, -184)
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="5"]
+position = Vector2(53, -30)
 color = Color(0.419608, 0.419608, 0.419608, 1)
 energy = 0.61
 
-[node name="Lights" type="Node2D" parent="."]
-position = Vector2(-2, 88)
+[node name="Lights" type="Node2D" parent="." index="6"]
+position = Vector2(-49, 242)
 
-[node name="PointLight2D2" type="PointLight2D" parent="Lights"]
+[node name="PointLight2D2" type="PointLight2D" parent="Lights" index="0"]
 position = Vector2(584, 225)
 color = Color(1, 1, 0.203922, 1)
 energy = 2.01
-texture = ExtResource("7_jsqe6")
-
-[node name="Score Items" type="Node2D" parent="."]
-script = ExtResource("7_syxky")
-ruteScene = "res://scenes/Ui/MainMenu.tscn"
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Score Items"]
-
-[node name="Label" type="Label" parent="Score Items/CanvasLayer"]
-offset_left = 68.0
-offset_top = 32.0
-offset_right = 180.0
-offset_bottom = 55.0
-text = "aaaaaaaaaaaa"
-
-[node name="finalLevel" type="Area2D" parent="Score Items"]
-position = Vector2(888, 305)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Score Items/finalLevel"]
-position = Vector2(143, 2)
-shape = SubResource("RectangleShape2D_mt2j1")
-
-[node name="Sprite2D" type="Sprite2D" parent="Score Items/finalLevel"]
-position = Vector2(144, 2)
-scale = Vector2(0.242188, 0.21875)
-texture = ExtResource("7_1mler")
-
-[node name="Timer" type="Timer" parent="Score Items"]
-autostart = true
-
-[node name="HTTPRequest" type="HTTPRequest" parent="Score Items"]
-
-[connection signal="body_entered" from="Score Items/finalLevel" to="Score Items" method="_on_final_level_body_entered"]
-[connection signal="timeout" from="Score Items/Timer" to="Score Items" method="_on_timer_timeout"]
-[connection signal="request_completed" from="Score Items/HTTPRequest" to="Score Items" method="_on_http_request_request_completed"]
+texture = ExtResource("7_2xlwt")

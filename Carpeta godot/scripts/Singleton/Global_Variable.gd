@@ -8,7 +8,7 @@ var blend_pos_paths = [
 	"parameters/Running/blend_position",
 ]
 
-
+var isChatting=true
 var userId=0
 var userName=""
 var userPassw=""

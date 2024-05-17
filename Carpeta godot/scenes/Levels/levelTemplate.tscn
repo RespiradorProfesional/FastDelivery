@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://yt5p1fyl7o1c"]
+
+[ext_resource type="Script" path="res://scripts/levels/LevelTemplate.gd" id="1_joyrn"]
+[ext_resource type="Script" path="res://scripts/Ui/Score.gd" id="2_rc8jt"]
+[ext_resource type="Texture2D" uid="uid://dy40p5l23ne7b" path="res://icon.svg" id="3_femy7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cnplc"]
+size = Vector2(32, 35)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_joyrn")
+
+[node name="Score Items" type="Node2D" parent="."]
+script = ExtResource("2_rc8jt")
+ruteScene = "res://scenes/Ui/MainMenu.tscn"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Score Items"]
+
+[node name="Label" type="Label" parent="Score Items/CanvasLayer"]
+offset_left = 68.0
+offset_top = 32.0
+offset_right = 180.0
+offset_bottom = 55.0
+text = "aaaaaaaaaaaa"
+
+[node name="finalLevel" type="Area2D" parent="Score Items"]
+position = Vector2(888, 305)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Score Items/finalLevel"]
+position = Vector2(143, 2)
+shape = SubResource("RectangleShape2D_cnplc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Score Items/finalLevel"]
+position = Vector2(144, 2)
+scale = Vector2(0.242188, 0.21875)
+texture = ExtResource("3_femy7")
+
+[node name="Timer" type="Timer" parent="Score Items"]
+
+[node name="HTTPRequest" type="HTTPRequest" parent="Score Items"]
+
+[node name="CharacterNoMove" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterNoMove"]
+
+[connection signal="body_entered" from="Score Items/finalLevel" to="Score Items" method="_on_final_level_body_entered"]
+[connection signal="timeout" from="Score Items/Timer" to="Score Items" method="_on_timer_timeout"]
+[connection signal="request_completed" from="Score Items/HTTPRequest" to="Score Items" method="_on_http_request_request_completed"]

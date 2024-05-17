@@ -6,3 +6,4 @@ Fabio: Hola hay alguien?, vale sí.
 Fabio: Donde esta el pedido? Teneis 2 minutos para traermelo, hombre tanta broma ya. Se supone que sois los "mas rapidos", como no tenga mi pedido en 2 minutos os expondre en twitter
 protagonist: Si señor...
 Fabio: Claro tio, es que es normal que te hable asi, venga anda nos vemos
+[signal arg="exit_dialogue"]

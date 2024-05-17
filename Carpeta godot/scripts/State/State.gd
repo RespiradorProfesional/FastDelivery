@@ -1,6 +1,7 @@
 extends Node
 class_name State
 
+
 var direction = 1
 @onready var fsm = get_parent()
 
@@ -14,7 +15,7 @@ func _ready():
 	player = get_tree().get_first_node_in_group("Player")
 
 func _input(event):
-	if event is InputEventKey:
+	if event is InputEventKey and !GlobalVariable.isChatting:
 		direction=Input.get_axis("MoveLeft", "MoveRight")
 		fsm.lastDirection=direction
 

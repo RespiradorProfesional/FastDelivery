@@ -13,6 +13,10 @@ var tiempoFormateado
 func _ready():
 	tiempoFormateado= "0:00"
 	seconds=0
+	cronometre.text=tiempoFormateado
+
+func start_time():
+	timer.start()
 
 func _on_timer_timeout():
 	seconds+=1
