@@ -9,6 +9,7 @@ func Update(_delta : float):
 	player.velocity.x = direction * fsm.speed
 	player.move_and_slide()
 	
+	print("cayendo")
 	if player.is_on_floor() and Input.is_action_pressed("Slide") and direction!=0:
 		Transitioned.emit(self, "Slide")
 	if player.is_on_floor() and Input.is_action_pressed("Bend"):

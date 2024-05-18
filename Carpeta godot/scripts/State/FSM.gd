@@ -68,8 +68,15 @@ func change_state(source_state : State, new_state_name : String):
 		animation_change(new_state_name.to_lower())
 
 func animation_change(new_state_name):
-	animation_Tree.set("parameters/conditions/isIdle",new_state_name=="idle")
-	animation_Tree.set("parameters/conditions/isRunning",new_state_name=="running")
-	animation_Tree.set("parameters/conditions/isJump", new_state_name=="jump")
+	animation_Tree.set("parameters/conditions/IsIdle",new_state_name=="idle")
+	animation_Tree.set("parameters/conditions/IsRunning",new_state_name=="running")
+	animation_Tree.set("parameters/conditions/IsJump", new_state_name=="jump")
+	animation_Tree.set("parameters/conditions/IsFall",new_state_name=="fall")
+	animation_Tree.set("parameters/conditions/IsBend",new_state_name=="bend")
+	animation_Tree.set("parameters/conditions/IsInWall", new_state_name=="inwall")
+	animation_Tree.set("parameters/conditions/IsWallJump", new_state_name=="walljump")
+	animation_Tree.set("parameters/conditions/IsBendJump", new_state_name=="bendjump")
+	animation_Tree.set("parameters/conditions/IsSlide", new_state_name=="slide")
+
 
 
