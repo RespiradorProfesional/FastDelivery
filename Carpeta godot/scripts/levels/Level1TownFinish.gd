@@ -3,7 +3,10 @@ extends Node2D
 @onready var controlLevelCalification=$controlLevelCalification
 var score
 
-# Called when the node enters the scene tree for the first time.
+#Al inicializarse genera el dialogo final del nivel, genera uno u otro dependiendo
+#de las variables recordGold,recordSilver,recordBronze y del tiempo realizado por el
+#jugador en el nivel 
+
 func _ready():
 	score = GlobalVariable.score
 	Dialogic.signal_event.connect(managament_records)
@@ -14,12 +17,10 @@ func _ready():
 	elif score<=controlLevelCalification.recordBronze:
 		Dialogic.start("timelineLevel1recordBronze")
 	else :
-		Dialogic.start("timelineLevel1GamerOver")
+		Dialogic.start("timelineLevel1GameOver")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+#Dependiendo de la respuesta del dialogo previamente generado, muestra una pantalla
+#de records u otra
 
 func managament_records(args: String):
 	match args:

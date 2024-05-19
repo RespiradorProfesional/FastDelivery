@@ -11,6 +11,7 @@ func _input(event):
 
 
 func _on_nivel_1_pressed():
+	AudioPlayerBackground.play_sound_button()
 	get_tree().change_scene_to_file("res://scenes/Ui/LevelRecordsScreen1.tscn")
 
 

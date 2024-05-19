@@ -9,6 +9,7 @@ extends Control
 @onready var colorRectUserSesion=$ColorRectUserSesion
 @onready var logoFImage=$VBoxContainer/VBoxContainer/logoF
 @onready var vBoxPressStart=$VBoxPressStart
+@onready var alertsLayer=$CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,13 +29,20 @@ func _input(event):
 
 
 func _on_login_button_pressed():
-	http_requestlogin.request(GlobalVariable.urlBaseApi+"/user/" + nameTextField.text + "/" +passwTextField.text)
+	if passwTextField.text!="":
+		http_requestlogin.request(GlobalVariable.urlBaseApi+"/user/" + nameTextField.text + "/" +passwTextField.text)
+	else :
+		alertsLayer.show_message("Rellene todos los campos")
 
 func _on_register_button_pressed():
-	var json = JSON.stringify({"username":nameTextField.text,"password":passwTextField.text})
-	
-	var headers = ["Content-Type: application/json"]
-	http_requestregister.request(GlobalVariable.urlBaseApi+"/user",headers,HTTPClient.METHOD_POST,json)
+	if passwTextField.text!="":
+		var json = JSON.stringify({"username":nameTextField.text,"password":passwTextField.text})
+		
+		var headers = ["Content-Type: application/json"]
+		http_requestregister.request(GlobalVariable.urlBaseApi+"/user",headers,HTTPClient.METHOD_POST,json)
+		
+	else :
+		alertsLayer.show_message("Rellene todos los campos")
 
 func _on_http_request_login_request_completed(result, response_code, headers, body):
 	var data= JSON.parse_string(body.get_string_from_utf8())
@@ -46,8 +54,13 @@ func _on_http_request_login_request_completed(result, response_code, headers, bo
 		GlobalVariable.userPassw=data.user.password
 		get_tree().change_scene_to_file("res://scenes/Ui/MainMenu.tscn")
 	else :
-		print("no")
+		alertsLayer.show_message("Usuario o contraseña incorrectos")
 	
 
 func _on_http_request_register_request_completed(result, response_code, headers, body):
-	print(JSON.parse_string(body.get_string_from_utf8()))
+	var data= JSON.parse_string(body.get_string_from_utf8())
+	
+	if data["response"]==true:
+		alertsLayer.show_message("Usuario registrado")
+	else :
+		alertsLayer.show_message("Error usuario ya registrado")

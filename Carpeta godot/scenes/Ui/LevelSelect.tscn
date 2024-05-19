@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://crlb8qj1hur7l"]
+
+[ext_resource type="Script" path="res://scripts/Ui/LevelSelect.gd" id="1_ci1b4"]
+[ext_resource type="Texture2D" uid="uid://cagfyi3sw5v4w" path="res://Ui elements/Main menu/backgroundMenu.png" id="1_jxst7"]
+[ext_resource type="Theme" uid="uid://iwupsatdtbhm" path="res://Ui elements/Themes/itemsMenu.tres" id="2_2tyhj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bl2m7"]
+font_size = 40
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ci1b4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jxst7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_2tyhj")
+text = "Seleccione un nivel"
+horizontal_alignment = 1
+
+[node name="Nivel 1" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_2tyhj")
+text = "Nivel 1
+"
+
+[node name="LabelBackButton" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "pulsa ESC para volver atras"
+label_settings = SubResource("LabelSettings_bl2m7")
+
+[connection signal="pressed" from="VBoxContainer/Nivel 1" to="." method="_on_nivel_1_pressed"]

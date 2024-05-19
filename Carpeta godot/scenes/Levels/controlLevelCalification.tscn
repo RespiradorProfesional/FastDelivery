@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://biyweken06r0j"]
+[gd_scene load_steps=6 format=3 uid="uid://biyweken06r0j"]
 
 [ext_resource type="Script" path="res://scripts/levels/controlLevelCalification.gd" id="1_isdts"]
+[ext_resource type="Texture2D" uid="uid://8rqalgp05nwk" path="res://Ui elements/Final level menu/BackgroundRecords.png" id="2_mwsm3"]
 [ext_resource type="Texture2D" uid="uid://dy40p5l23ne7b" path="res://icon.svg" id="2_sb8ci"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4pqyv"]
 font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_vd2sq"]
+font_size = 80
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -16,6 +20,7 @@ grow_vertical = 2
 script = ExtResource("1_isdts")
 
 [node name="ScorePanel" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,20 +28,74 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScoreLabel" type="Label" parent="ScorePanel"]
-layout_mode = 0
-offset_left = 295.0
-offset_top = 234.0
-offset_right = 1159.0
-offset_bottom = 617.0
-label_settings = SubResource("LabelSettings_4pqyv")
-
 [node name="TextureRect" type="TextureRect" parent="ScorePanel"]
-layout_mode = 0
-offset_left = 990.0
-offset_top = 380.0
-offset_right = 1811.0
-offset_bottom = 858.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.433
+anchor_top = 0.215
+anchor_right = 0.932
+anchor_bottom = 0.816
+offset_left = 0.639954
+offset_top = -0.199997
+offset_right = -0.440063
+offset_bottom = -0.280029
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mwsm3")
+
+[node name="RecordImage2" type="TextureRect" parent="ScorePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.055
+anchor_top = 0.198
+anchor_right = 0.495
+anchor_bottom = 0.731
+offset_left = 0.399994
+offset_top = -24.84
+offset_right = 179.32
+offset_bottom = 229.243
+texture = ExtResource("2_mwsm3")
+
+[node name="RecordImage" type="TextureRect" parent="ScorePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.06
+anchor_top = 0.187
+anchor_right = 0.584
+anchor_bottom = 0.938
+offset_left = 1038.8
+offset_top = 90.04
+offset_right = 548.72
+offset_bottom = -270.04
 texture = ExtResource("2_sb8ci")
 
+[node name="ScoreLabel" type="Label" parent="ScorePanel"]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 481.0
+offset_right = 1063.0
+offset_bottom = 864.0
+label_settings = SubResource("LabelSettings_4pqyv")
+
+[node name="RecordLabel" type="Label" parent="ScorePanel"]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 206.0
+offset_right = 1071.0
+offset_bottom = 453.0
+label_settings = SubResource("LabelSettings_4pqyv")
+
+[node name="Startbutton" type="Label" parent="ScorePanel"]
+visible = false
+layout_mode = 0
+offset_left = 239.0
+offset_top = 869.0
+offset_right = 1676.0
+offset_bottom = 979.0
+text = "Pulse cualquier boton para continuar"
+label_settings = SubResource("LabelSettings_vd2sq")
+
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

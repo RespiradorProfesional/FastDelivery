@@ -26,7 +26,7 @@ func _on_http_request_request_completed(result, response_code, headers, body):
 	var data= JSON.parse_string(body.get_string_from_utf8())
 	var count = 0
 	for records in data.data:
-		create_label(str(records["username"]),str(records["completion_time_seconds"]))
+		create_label(str(records["username"]),GlobalVariable.formatTime(int(str(records["completion_time_seconds"]))))
 		count += 1
 		if count >= 20:
 			break

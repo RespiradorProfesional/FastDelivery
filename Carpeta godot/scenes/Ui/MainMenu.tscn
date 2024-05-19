@@ -99,13 +99,23 @@ theme = ExtResource("4_ytekm")
 text = "Records
 "
 
-[node name="Button3" type="Button" parent="HBoxMainScreen/VBoxContainer/VBoxContainer"]
+[node name="ComoJugar" type="Button" parent="HBoxMainScreen/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 size_flags_horizontal = 8
 theme = ExtResource("4_ytekm")
 theme_override_fonts/font = ExtResource("2_40uhi")
-text = "Creditos"
+text = "Como jugar
+"
+
+[node name="Creditos" type="Button" parent="HBoxMainScreen/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("4_ytekm")
+theme_override_fonts/font = ExtResource("2_40uhi")
+text = "Creditos
+"
 
 [node name="Leave" type="Button" parent="HBoxMainScreen/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 70)
@@ -183,6 +193,8 @@ text = "Eliminar Cuenta"
 
 [connection signal="pressed" from="HBoxMainScreen/VBoxContainer/VBoxContainer/JugarButton" to="." method="_on_jugar_button_pressed"]
 [connection signal="pressed" from="HBoxMainScreen/VBoxContainer/VBoxContainer/Records" to="." method="_on_records_pressed"]
+[connection signal="pressed" from="HBoxMainScreen/VBoxContainer/VBoxContainer/ComoJugar" to="." method="_on_como_jugar_pressed"]
+[connection signal="pressed" from="HBoxMainScreen/VBoxContainer/VBoxContainer/Creditos" to="." method="_on_creditos_pressed"]
 [connection signal="pressed" from="HBoxMainScreen/VBoxContainer/VBoxContainer/Leave" to="." method="_on_leave_pressed"]
 [connection signal="pressed" from="HBoxMainScreen/VBoxContainer/VBoxContainer/AjuteButton" to="." method="_on_ajute_button_pressed"]
 [connection signal="pressed" from="VBoxUserScreen/VBoxContainer/newPasswordContainer/Button" to="." method="_on_button_pressed"]

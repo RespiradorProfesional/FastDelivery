@@ -14,11 +14,48 @@ position = Vector2(965, 542)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="controlLevelCalification" parent="." instance=ExtResource("2_7sqv8")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
-recordBronze = 40
-recordSilver = 20
-recordGold = 10
+offset_left = 481.0
+offset_top = 402.0
+offset_right = 481.0
+offset_bottom = 402.0
+recordBronze = 50
+recordSilver = 40
+recordGold = 32
+
+[node name="TextureRect" parent="controlLevelCalification/ScorePanel" index="0"]
+offset_left = 608.6
+offset_top = -369.0
+offset_right = 1208.6
+offset_bottom = 231.0
+
+[node name="RecordImage2" parent="controlLevelCalification/ScorePanel" index="1"]
+offset_left = -128.0
+offset_top = -239.84
+offset_right = 472.0
+offset_bottom = 360.16
+
+[node name="RecordImage" parent="controlLevelCalification/ScorePanel" index="2"]
+offset_left = 623.6
+offset_top = -362.0
+offset_right = 751.6
+offset_bottom = -234.0
+
+[node name="ScoreLabel" parent="controlLevelCalification/ScorePanel" index="3"]
+offset_left = -62.4
+offset_top = 17.0
+offset_right = 801.6
+offset_bottom = 400.0
+
+[node name="RecordLabel" parent="controlLevelCalification/ScorePanel" index="4"]
+offset_left = -54.4
+offset_top = -163.0
+offset_right = 809.6
+offset_bottom = 84.0
+
+[node name="Startbutton" parent="controlLevelCalification/ScorePanel" index="5"]
+offset_left = -86.0
+offset_top = 408.0
+offset_right = 1351.0
+offset_bottom = 518.0
+
+[editable path="controlLevelCalification"]

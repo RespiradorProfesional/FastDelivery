@@ -1,10 +1,15 @@
 extends Node2D
+class_name Level_Template
+
+#Esta escena es usada como base para todas las escenas, aqui se gestiona
+#el uso del score y se realiza el dialogo del principio del nivel, segun el nombre
+#del dialogo pasado en la variable "dialogue"
 
 @onready var score_items=$"Score Items"
 @export var dialogue : String
 @onready var playerFSM= $Player/FSM
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	AudioPlayerBackground.play_music_level1_background()
 	Dialogic.signal_event.connect(start_level)
@@ -22,7 +27,6 @@ func start_level(args: String):
 	if args=="exit_dialogue_starts":
 		score_items.start_time()
 		GlobalVariable.isChatting=false
-		print("EMPEZOOOOOOOO")
 
 
 

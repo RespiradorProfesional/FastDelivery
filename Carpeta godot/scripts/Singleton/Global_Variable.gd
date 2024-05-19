@@ -20,3 +20,16 @@ var isChatting=true
 var userId=0
 var userName=""
 var userPassw=""
+
+func formatTime(seconds):
+	var tiempoFormateado=""
+	# Suponiendo que "segundosTotales" es el tiempo total en segundos
+	var minutos = seconds / 60
+	var segundos = seconds % 60
+	# Formatear los minutos y segundos en una cadena
+	if segundos < 10:
+		tiempoFormateado = str(minutos) + ":0" + str(segundos)
+		return tiempoFormateado
+	else : 
+		tiempoFormateado = str(minutos) + ":" + str(segundos)
+		return tiempoFormateado

@@ -26,7 +26,7 @@ func _input(event):
 
 func _on_jugar_button_pressed():
 	AudioPlayerBackground.play_sound_button()
-	get_tree().change_scene_to_file("res://scenes/Levels/Level1Town.tscn")
+	get_tree().change_scene_to_file("res://scenes/Ui/LevelSelect.tscn")
 
 func _on_records_pressed():
 	AudioPlayerBackground.play_sound_button()
@@ -69,3 +69,13 @@ func _on_http_request_request_completed(result, response_code, headers, body):
 
 func _on_leave_pressed():
 	get_tree().quit()
+
+
+func _on_creditos_pressed():
+	AudioPlayerBackground.play_sound_button()
+	get_tree().change_scene_to_file("res://scenes/Ui/Credits.tscn")
+
+
+func _on_como_jugar_pressed():
+	AudioPlayerBackground.play_sound_button()
+	get_tree().change_scene_to_file("res://scenes/Ui/Controles.tscn")

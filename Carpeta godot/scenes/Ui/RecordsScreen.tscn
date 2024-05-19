@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdfub8swlx7tf"]
+[gd_scene load_steps=6 format=3 uid="uid://bdfub8swlx7tf"]
 
 [ext_resource type="Script" path="res://scripts/Ui/RecordsScreen.gd" id="1_jgtwg"]
 [ext_resource type="Texture2D" uid="uid://dmc0gsg7imqh0" path="res://Ui elements/Main menu/backgroundMenuSecond.png" id="2_wx1s0"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_si8se"]
 font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_ne7r3"]
+font_size = 40
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -71,6 +74,13 @@ vertical_alignment = 1
 
 [node name="ImageLevel" type="TextureRect" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+
+[node name="LabelBackButton" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "pulsa ESC para volver atras"
+label_settings = SubResource("LabelSettings_ne7r3")
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/Nivel 1" to="." method="_on_nivel_1_mouse_entered"]

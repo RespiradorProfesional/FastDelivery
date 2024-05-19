@@ -35,8 +35,8 @@ directories/dtl_directory={
 "timelineLvl1_Starts": "res://dialogic/level 1/Start/timelineLvl1_Starts.dtl"
 }
 variables={}
-layout/style_list=[]
-layout/default_style="Default"
+layout/style_list=["res://CustomDialogic.tres"]
+layout/default_style="res://CustomDialogic.tres"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.1
@@ -109,3 +109,7 @@ dialogic_default_action={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_2="Player"

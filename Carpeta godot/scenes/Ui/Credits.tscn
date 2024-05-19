@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://caoapxay74og8"]
+
+[ext_resource type="Texture2D" uid="uid://cagfyi3sw5v4w" path="res://Ui elements/Main menu/backgroundMenu.png" id="1_2cqgs"]
+[ext_resource type="Script" path="res://scripts/Ui/Credits.gd" id="1_m81y8"]
+[ext_resource type="Theme" uid="uid://iwupsatdtbhm" path="res://Ui elements/Themes/itemsMenu.tres" id="2_o1wrk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_utqee"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_1rpbv"]
+font_size = 40
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m81y8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2cqgs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_o1wrk")
+text = "Creditos"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_o1wrk")
+text = "Programador y diseñador : Néstor"
+label_settings = SubResource("LabelSettings_utqee")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_o1wrk")
+text = "Assets : Luis"
+label_settings = SubResource("LabelSettings_utqee")
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_o1wrk")
+text = "Musica : Hiroshi J. Sánchez"
+label_settings = SubResource("LabelSettings_utqee")
+horizontal_alignment = 1
+
+[node name="LabelBackButton" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "pulsa ESC para volver atras"
+label_settings = SubResource("LabelSettings_1rpbv")

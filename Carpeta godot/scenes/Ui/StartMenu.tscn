@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dk4eyx01s4voj"]
+[gd_scene load_steps=10 format=3 uid="uid://dk4eyx01s4voj"]
 
 [ext_resource type="Script" path="res://scripts/Ui/StartMenu.gd" id="1_x862d"]
 [ext_resource type="Texture2D" uid="uid://debq647hp1ync" path="res://Ui elements/Final Levels/background.png" id="2_st8l2"]
 [ext_resource type="Texture2D" uid="uid://y3t7stqj8bb7" path="res://Ui elements/Final Levels/f.png" id="3_2vxvn"]
 [ext_resource type="Texture2D" uid="uid://dgw3tsllhc3re" path="res://Ui elements/Final Levels/aster delivery.png" id="4_7rmr7"]
 [ext_resource type="Theme" uid="uid://iwupsatdtbhm" path="res://Ui elements/Themes/itemsMenu.tres" id="5_0k6t6"]
+[ext_resource type="PackedScene" uid="uid://b8n0v8cjidynw" path="res://scenes/Ui/Alerts.tscn" id="6_6dyt3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_orq1s"]
 font_size = 50
@@ -109,6 +110,7 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("5_0k6t6")
+max_length = 24
 
 [node name="Label2" type="Label" parent="UserSesion"]
 layout_mode = 2
@@ -121,6 +123,7 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("5_0k6t6")
+max_length = 24
 
 [node name="LoginButton" type="Button" parent="UserSesion"]
 custom_minimum_size = Vector2(100, 30)
@@ -135,6 +138,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("5_0k6t6")
 text = "Registrar"
+
+[node name="CanvasLayer" parent="." instance=ExtResource("6_6dyt3")]
 
 [node name="HTTPRequestRegister" type="HTTPRequest" parent="."]
 

@@ -15,7 +15,7 @@ connection=MySQL(app)
 def get_records_by_level(level):
     try:
         cursor=connection.connection.cursor()
-        sql= "SELECT Users.username, Records.completion_time_seconds FROM Users INNER JOIN Records ON Users.user_id = Records.user_id WHERE Records.level_id = {0};".format(level)
+        sql= "SELECT Users.username, Records.completion_time_seconds FROM Users INNER JOIN Records ON Users.user_id = Records.user_id WHERE Records.level_id = {0} ORDER BY Records.completion_time_seconds ASC;".format(level)
         cursor.execute(sql)
         data=cursor.fetchall()
         records=[]
