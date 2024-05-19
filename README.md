@@ -32,6 +32,6 @@ Faster Delivery es un emocionante juego de plataformas en 2D diseñado exclusiva
 
 Este proyecto está bajo la Licencia MIT. Puedes utilizar, modificar y distribuir este software de acuerdo con los términos de la licencia.
 
-El enlace al código fuente con el código de la API y más se encuentra aquí: [Enlace al código fuente](https://www.mediafire.com/file/mya9m708vvqybdk/FasterDelivery.exe/file)
+El enlace al ejecutable se encuentra aquí: [Enlace al código fuente](https://www.mediafire.com/file/mya9m708vvqybdk/FasterDelivery.exe/file)
 
 !AVISO!, el windows puede detectar como virus el ejecutable .exe, aseguro que no es un virus
