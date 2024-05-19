@@ -1,6 +1,9 @@
 extends Control
 class_name levelRecordsScript
 
+#Este script se usa para para mostrar los datos de la api "Records"
+#Generando la vista dependiendo del numero de respuestas hasta un maximo de 20
+
 @export var level=""
 @export var levelName=""
 @onready var http_request= $HTTPRequest
@@ -10,12 +13,9 @@ class_name levelRecordsScript
 @onready var titleText=$VBoxContainer/TitleLabel
 
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	http_request.request(GlobalVariable.urlBaseApi+"/records/"+level)
 	titleText.text="Records " + levelName
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _input(event):
 	if Input.is_action_just_pressed("Escape"):

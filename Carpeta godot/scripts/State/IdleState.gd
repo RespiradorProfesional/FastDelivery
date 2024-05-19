@@ -1,15 +1,10 @@
 extends State
 class_name PlayerIdle
 
-#momento dado para no obtener el player cada vez que entras a un estado puedo crear un nuevo
-#metodo en State y poner al atributo de player para que todas las clases que 
-#extiendan de el lo tengan
-
-
+#En este estado se maneja cuando el jugador esta quieto
 
 func Enter():
 	fsm.resetJumpWall=true
-	print("Idle")
 
 func Update(_delta : float):
 	

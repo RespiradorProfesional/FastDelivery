@@ -1,6 +1,11 @@
 extends Node
 class_name FiniteStateMachine
 
+#En este script se maneja el cambio entre estados, y el uso de los metodos
+#que poseen los estados
+
+#Estas variables son las diferentes estadísticas del personaje que son usados
+#en los estados del mismo para manejar su movilidad 
 @export var speed=200
 @export var bendSpeed=100
 @export var slideSpeed=400
@@ -15,26 +20,27 @@ class_name FiniteStateMachine
 var resetJumpWall=true
 var resetGravityWall=true
 
+#Esta variable guarda la ultima direccion realizada por el jugador
 var lastDirection=1
 
 var states : Dictionary = {}
 var current_state : State
 @export var initial_state : State
 
-#NOTE This is a generic finite_state_machine, it handles all states, changes to this code will affect
-# everything that uses a state machine!
 
+#Al iniciarse el script, incorpora un estado base que posee en la variable
+#"initial_state" y conecta las señales de todos los estados al metodo "change_state"
 func _ready():
 	for child in get_children():
 		if child is State:
 			states[child.name.to_lower()] = child
-			child.Transitioned.connect(change_state) #los states transmiten una señal y aqui me conecto a ella y lo administra el change_state
+			child.Transitioned.connect(change_state)
 
 	if initial_state:
 		initial_state.Enter()
 		current_state = initial_state
 
-#Call the current states update function continuosly
+#Llama al metodo Update() del estado actual constantemente
 func _process(delta):
 	if current_state:
 			current_state.Update(delta)
@@ -45,13 +51,12 @@ func _process(delta):
 	
 	
 
-
+#Se maneja el cambio de estados segun la señal emitida por los 
+#mismos
 func change_state(source_state : State, new_state_name : String):
 	
 	if !GlobalVariable.isChatting:
 		if source_state != current_state:
-			#print("Invalid change_state trying from: " + source_state.name + " but currently in: " + current_state.name)
-			#This typically only happens when trying to switch from death state following a force_change
 			return
 		
 		var new_state = states.get(new_state_name.to_lower())
@@ -67,6 +72,7 @@ func change_state(source_state : State, new_state_name : String):
 		current_state = new_state
 		animation_change(new_state_name.to_lower())
 
+#Segun en el estado actual del jugador, se le incorpora una animación
 func animation_change(new_state_name):
 	animation_Tree.set("parameters/conditions/IsIdle",new_state_name=="idle")
 	animation_Tree.set("parameters/conditions/IsRunning",new_state_name=="running")

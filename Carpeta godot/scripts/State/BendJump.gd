@@ -2,20 +2,19 @@ extends State
 
 var finishJumpTime
 
-# hacer que s epueda mover despues de un wall jump pero la direccion ahora tiene que ser contraria
-# a la que hizo la ultima vez que hizo el wall jump
+#Es un estado del personaje en el cual el personaje al realizar un salto mientras
+#esta agachado no se puede mover y sigue recto segun la orientacion del salto
 
 func Enter():
 	player.velocity.y += -fsm.jump
 	pass
 
 func Update(_delta : float):
+	#Gravedad del personaje
 	player.velocity.y += fsm.gravity * _delta
 	
 	player.move_and_slide()
 	
-
-
 	if player.is_on_floor() and Input.is_action_pressed("Bend"):
 		Transitioned.emit(self, "Bend")
 	if player.is_on_wall():

@@ -1,13 +1,16 @@
 extends CanvasLayer
 
+#Se usa para mostrar mensajes momentaneos 
 
 @onready var timer=$Timer
 @onready var label=$Label
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	visible=false
 
+
+#Para mostrar un mensaje se usa este metodo pasando por parametro el mensaje a 
+#emitir
 func show_message(message):
 	label.text=message
 	visible=true

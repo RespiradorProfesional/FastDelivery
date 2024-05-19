@@ -1,5 +1,7 @@
 extends Control
 
+#En este script se maneja la Ui, el inicio de sesión y registro del usuario
+
 @onready var userSesion=$UserSesion
 @onready var labelStart=$VBoxPressStart/LabelStart
 @onready var http_requestlogin= $HTTPRequestLogin
@@ -15,6 +17,7 @@ extends Control
 func _ready():
 	AudioPlayerBackground.play_music_start_sreen_background()
 
+#Al detecat que el usuario pulsa una tecla muestra la Ui del inicio de sesión
 func _input(event):
 	if event is InputEventKey:
 		var key_event = event as InputEventKey
@@ -25,15 +28,15 @@ func _input(event):
 			colorRectUserSesion.visible=true
 
 
-
-
-
+#Si todos los campos estaban rellenados hacia una petición a la API para iniciar
+#sesión
 func _on_login_button_pressed():
 	if passwTextField.text!="":
 		http_requestlogin.request(GlobalVariable.urlBaseApi+"/user/" + nameTextField.text + "/" +passwTextField.text)
 	else :
 		alertsLayer.show_message("Rellene todos los campos")
 
+#Si todos los campos estaban rellenados hacia una petición a la API para registrarse
 func _on_register_button_pressed():
 	if passwTextField.text!="":
 		var json = JSON.stringify({"username":nameTextField.text,"password":passwTextField.text})
@@ -44,6 +47,9 @@ func _on_register_button_pressed():
 	else :
 		alertsLayer.show_message("Rellene todos los campos")
 
+
+#Al obtener una respuesta si la respuesta es true, se cambiara de escena,
+#si no se mostrara un mensaje demostrando el error
 func _on_http_request_login_request_completed(result, response_code, headers, body):
 	var data= JSON.parse_string(body.get_string_from_utf8())
 	
@@ -57,6 +63,8 @@ func _on_http_request_login_request_completed(result, response_code, headers, bo
 		alertsLayer.show_message("Usuario o contraseña incorrectos")
 	
 
+#Al obtener una respuesta si la respuesta es true, se notificara al usuario,
+#si no se mostrara un mensaje demostrando el error
 func _on_http_request_register_request_completed(result, response_code, headers, body):
 	var data= JSON.parse_string(body.get_string_from_utf8())
 	

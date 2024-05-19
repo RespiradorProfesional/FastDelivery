@@ -3,20 +3,19 @@ extends State
 var actualVelocity=0
 var lastDirection=0
 
-# Called when the node enters the scene tree for the first time.
+#Este estado maneja cuando el jugador se desliza, no puede cambiar de direccion
+#y al principio del estado el jugador se mueve mas rapido pero esta velocidad
+#baja rapidamente
+
 func Enter():
 	lastDirection = direction
 	
 	player.velocity.x = lastDirection * fsm.slideSpeed
 	actualVelocity=0
-	#animation_Tree.set("")
 	pass
 
 func Update(_delta : float):
-	
-	
 	actualVelocity+=2
-	print("Slide")
 	print(player.velocity.x)
 	
 	if lastDirection==-1:

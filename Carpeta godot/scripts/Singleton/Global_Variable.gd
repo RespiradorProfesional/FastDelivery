@@ -1,6 +1,11 @@
 extends Node
 
+#Esto es una variable global usada en todo el programa para diferentes propositos
+
 var urlBaseApi= "http://127.0.0.1:5000"
+
+#"blend_pos_paths" esta variable es usada para la orientacion de cada animación
+#del personaje principal
 
 var blend_pos_paths = [
 	"parameters/Idle/blend_position",
@@ -17,11 +22,18 @@ var blend_pos_paths = [
 
 var score=0
 var isChatting=true
+
+#Al iniciar sesión el usuario se guardan sus datos en las siguientes tres 
+#variables
+
 var userId=0
 var userName=""
 var userPassw=""
 
-func formatTime(seconds):
+#Esta funcion formatea un int que en este casos son segundos y retorna una string
+#en formato de segundos y minutos
+
+func formatTime(seconds : int):
 	var tiempoFormateado=""
 	# Suponiendo que "segundosTotales" es el tiempo total en segundos
 	var minutos = seconds / 60

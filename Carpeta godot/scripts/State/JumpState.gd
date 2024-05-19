@@ -1,8 +1,6 @@
 extends State
 
-
-# hacer que s epueda mover despues de un wall jump pero la direccion ahora tiene que ser contraria
-# a la que hizo la ultima vez que hizo el wall jump
+#Este estado maneja cuando el jugador haya saltado desde el suelo
 
 func Enter():
 	player.velocity.y += -fsm.jump

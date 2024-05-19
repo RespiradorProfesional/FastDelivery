@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="FastDeliveryGodot"
-run/main_scene="res://scenes/Ui/MainMenu.tscn"
+run/main_scene="res://scenes/Ui/StartMenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
@@ -25,7 +26,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 directories/dch_directory={
 "Fabio": "res://dialogic/level 1/Start/Fabio.dch",
-"protagonist": "res://dialogic/Protagonist.dch"
+"Protagonist": "res://dialogic/Protagonist.dch"
 }
 directories/dtl_directory={
 "timelineLevel1GameOver": "res://dialogic/level 1/Finish/timelineLevel1GameOver.dtl",
@@ -60,6 +61,7 @@ glossary/default_case_sensitive=true
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="ignore"
 

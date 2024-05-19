@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ciunbd6i236qf"]
+[gd_scene load_steps=24 format=3 uid="uid://ciunbd6i236qf"]
 
 [ext_resource type="PackedScene" uid="uid://yt5p1fyl7o1c" path="res://scenes/Levels/levelTemplate.tscn" id="1_f2ewt"]
 [ext_resource type="PackedScene" uid="uid://d3v6bw0vevyxh" path="res://scenes/DefaultRunner.tscn" id="2_l7chg"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://d3o55o63sblsx" path="res://sprites/ParallaxFondos/Nivel 1/Ciudad2erNew.png" id="7_6e50g"]
 [ext_resource type="Texture2D" uid="uid://cavcoqwvtcofn" path="res://sprites/ParallaxFondos/Nivel 1/Ciudad1erNew.png" id="8_cxyci"]
 [ext_resource type="Texture2D" uid="uid://bc06qti3xyskc" path="res://Shaders/LightCiruclar.png" id="9_0yq01"]
+[ext_resource type="Texture2D" uid="uid://3d4nyqmkxuqi" path="res://sprites/Flechita.png" id="13_aqh8c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1puht"]
 font_size = 40
@@ -1807,6 +1808,17 @@ position = Vector2(1309, 510)
 
 [node name="SecondRespawn" type="Marker2D" parent="." index="11"]
 position = Vector2(3044, 126)
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="12"]
+texture_filter = 1
+position = Vector2(4675, 543)
+texture = ExtResource("13_aqh8c")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." index="13"]
+texture_filter = 1
+position = Vector2(4764, 488)
+rotation = 1.57309
+texture = ExtResource("13_aqh8c")
 
 [connection signal="body_entered" from="FirtsFall" to="." method="_on_firts_fall_body_entered"]
 [connection signal="body_entered" from="SecondFall" to="." method="_on_second_fall_body_entered"]
