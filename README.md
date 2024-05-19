@@ -1,0 +1,35 @@
+# Faster Delivery v1.0.0
+
+**Curso: 2023/2024 Proyecto final DAM - Desarrollo de Aplicaciones Multiplataforma Autor: Néstor Álvarez Pareja**
+
+## Descripción
+
+Faster Delivery es un emocionante juego de plataformas en 2D diseñado exclusivamente para PC, donde los jugadores asumen el papel de un repartidor cuyo objetivo principal es entregar paquetes lo más rápido posible. En este juego, cada nivel presenta una historia única donde la velocidad de entrega del paquete determina el desarrollo y desenlace de la trama. La aplicación almacena las cuentas de los jugadores y los tiempos realizados en cada nivel, permitiendo mostrar los mejores tiempos logrados por los jugadores en cada uno de ellos.
+
+## Contenido
+
+- **Código Fuente:** Contiene todo el código fuente del juego, incluyendo el desarrollo del juego en Godot, la API con Python y Flask, y la configuración de la base de datos MySQL.
+
+- **Assets:** Contiene los assets utilizados en el juego, como sprites, música y efectos de sonido.
+
+- **Ejecutable del juego:** El ejecutable del juego se encuentra bajo el nombre de "FasterDelivery.exe".
+
+## Instalación y Uso
+
+1. Clona el repositorio desde GitHub: `git clone https://github.com/tuusuario/faster-delivery.git`
+
+2. Crea la base de datos en MySQL utilizando un programa como "WorkBench" con las siguientes credenciales:
+    - MYSQL_HOST = 'localhost'
+    - MYSQL_USER = 'root'
+    - MYSQL_PASSWORD = ''
+    - MYSQL_DB = 'FasterDeliveryBD'
+
+3. Instala Python. Una vez instalado, deberás instalar un IDE como "Visual Studio Code" para ejecutar la API y algún programa que permita crear un servidor web local como "Xampp". Deberás ejecutar ambos y haber creado la base de datos previamente para poder jugar.
+
+4. Ejecuta el juego y disfruta de la experiencia de Faster Delivery.
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT. Puedes utilizar, modificar y distribuir este software de acuerdo con los términos de la licencia.
+
+El enlace al código fuente con el código de la API y más se encuentra aquí: [Enlace al código fuente](https://github.com/RespiradorProfesional/FastDelivery)
