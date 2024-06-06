@@ -16,6 +16,8 @@ Faster Delivery es un emocionante juego de plataformas en 2D diseñado exclusiva
 
 ## Instalación y Uso
 
+1. En caso de no querer la funcionalidad de la API puedes probar el fragmento de juego en este enlace (no se recomienda ya que el juego no contempla la posibilidad de no estar conectada a una BD, aunque si se podra jugar el primer nivel pero no terminarlo):  [Enlace al juego ejecutable sin API]([https://www.mediafire.com/file/mya9m708vvqybdk/FasterDelivery.exe/file](https://www.mediafire.com/file/75di9j9a1iw43vo/FasterDeliveryNoApi.exe/file))
+
 1. Clona el repositorio desde GitHub: `git clone https://github.com/tuusuario/faster-delivery.git`
 
 2. Crea la base de datos en MySQL utilizando un programa como "WorkBench" con las siguientes credenciales:
@@ -32,6 +34,6 @@ Faster Delivery es un emocionante juego de plataformas en 2D diseñado exclusiva
 
 Este proyecto está bajo la Licencia MIT. Puedes utilizar, modificar y distribuir este software de acuerdo con los términos de la licencia.
 
-El enlace al ejecutable se encuentra aquí: [Enlace al código fuente](https://www.mediafire.com/file/mya9m708vvqybdk/FasterDelivery.exe/file)
+El enlace al ejecutable se encuentra aquí: [Enlace al juego ejecutable](https://www.mediafire.com/file/mya9m708vvqybdk/FasterDelivery.exe/file)
 
 !AVISO!, el windows puede detectar como virus el ejecutable .exe, aseguro que no es un virus
