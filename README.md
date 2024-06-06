@@ -16,7 +16,7 @@ Faster Delivery es un emocionante juego de plataformas en 2D diseñado exclusiva
 
 ## Instalación y Uso
 
-1. En caso de no querer la funcionalidad de la API puedes probar el fragmento de juego en este enlace (no se recomienda ya que el juego no contempla la posibilidad de no estar conectada a una BD, aunque si se podra jugar el primer nivel pero no terminarlo):  [Enlace al juego ejecutable sin API]([https://www.mediafire.com/file/mya9m708vvqybdk/FasterDelivery.exe/file](https://www.mediafire.com/file/75di9j9a1iw43vo/FasterDeliveryNoApi.exe/file)
+1. En caso de no querer la funcionalidad de la API puedes probar el fragmento de juego en este enlace (no se recomienda ya que el juego no contempla la posibilidad de no estar conectada a una BD, aunque si se podra jugar el primer nivel pero no terminarlo): [Enlace al ejecutable del juego sin API](https://www.mediafire.com/file/75di9j9a1iw43vo/FasterDeliveryNoApi.exe/file)
 
 1. Clona el repositorio desde GitHub: `git clone https://github.com/tuusuario/faster-delivery.git`
 
